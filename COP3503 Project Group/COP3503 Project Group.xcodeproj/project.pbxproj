@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		6793361B1FAF98A700DA1B5E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6793361A1FAF98A700DA1B5E /* main.cpp */; };
+		679336301FAF9CE400DA1B5E /* monster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6793362E1FAF9CE400DA1B5E /* monster.cpp */; };
+		679336331FAF9D0A00DA1B5E /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 679336311FAF9D0A00DA1B5E /* player.cpp */; };
+		679336361FAF9D6600DA1B5E /* walk_challenge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 679336341FAF9D6600DA1B5E /* walk_challenge.cpp */; };
+		679336391FAF9DB800DA1B5E /* battle_challenge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 679336371FAF9DB800DA1B5E /* battle_challenge.cpp */; };
+		6793363F1FAF9DFF00DA1B5E /* quiz_challenge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6793363D1FAF9DFF00DA1B5E /* quiz_challenge.cpp */; };
+		679336421FAF9E2200DA1B5E /* challenge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 679336401FAF9E2200DA1B5E /* challenge.cpp */; };
+		679336451FAF9E5300DA1B5E /* entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 679336431FAF9E5300DA1B5E /* entity.cpp */; };
+		679336481FAF9E5A00DA1B5E /* item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 679336461FAF9E5A00DA1B5E /* item.cpp */; };
+		6793364B1FAF9E6100DA1B5E /* room.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 679336491FAF9E6100DA1B5E /* room.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +34,24 @@
 /* Begin PBXFileReference section */
 		679336171FAF98A700DA1B5E /* COP3503 Project Group */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "COP3503 Project Group"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6793361A1FAF98A700DA1B5E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		6793362E1FAF9CE400DA1B5E /* monster.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = monster.cpp; sourceTree = "<group>"; };
+		6793362F1FAF9CE400DA1B5E /* monster.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = monster.hpp; sourceTree = "<group>"; };
+		679336311FAF9D0A00DA1B5E /* player.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
+		679336321FAF9D0A00DA1B5E /* player.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = player.hpp; sourceTree = "<group>"; };
+		679336341FAF9D6600DA1B5E /* walk_challenge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = walk_challenge.cpp; sourceTree = "<group>"; };
+		679336351FAF9D6600DA1B5E /* walk_challenge.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = walk_challenge.hpp; sourceTree = "<group>"; };
+		679336371FAF9DB800DA1B5E /* battle_challenge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = battle_challenge.cpp; sourceTree = "<group>"; };
+		679336381FAF9DB800DA1B5E /* battle_challenge.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = battle_challenge.hpp; sourceTree = "<group>"; };
+		6793363D1FAF9DFF00DA1B5E /* quiz_challenge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = quiz_challenge.cpp; sourceTree = "<group>"; };
+		6793363E1FAF9DFF00DA1B5E /* quiz_challenge.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = quiz_challenge.hpp; sourceTree = "<group>"; };
+		679336401FAF9E2200DA1B5E /* challenge.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = challenge.cpp; sourceTree = "<group>"; };
+		679336411FAF9E2200DA1B5E /* challenge.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = challenge.hpp; sourceTree = "<group>"; };
+		679336431FAF9E5300DA1B5E /* entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = entity.cpp; sourceTree = "<group>"; };
+		679336441FAF9E5300DA1B5E /* entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = entity.hpp; sourceTree = "<group>"; };
+		679336461FAF9E5A00DA1B5E /* item.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = item.cpp; sourceTree = "<group>"; };
+		679336471FAF9E5A00DA1B5E /* item.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = item.hpp; sourceTree = "<group>"; };
+		679336491FAF9E6100DA1B5E /* room.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = room.cpp; sourceTree = "<group>"; };
+		6793364A1FAF9E6100DA1B5E /* room.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = room.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +85,24 @@
 			isa = PBXGroup;
 			children = (
 				6793361A1FAF98A700DA1B5E /* main.cpp */,
+				679336461FAF9E5A00DA1B5E /* item.cpp */,
+				679336471FAF9E5A00DA1B5E /* item.hpp */,
+				679336491FAF9E6100DA1B5E /* room.cpp */,
+				6793364A1FAF9E6100DA1B5E /* room.hpp */,
+				679336431FAF9E5300DA1B5E /* entity.cpp */,
+				679336441FAF9E5300DA1B5E /* entity.hpp */,
+				679336311FAF9D0A00DA1B5E /* player.cpp */,
+				679336321FAF9D0A00DA1B5E /* player.hpp */,
+				6793362E1FAF9CE400DA1B5E /* monster.cpp */,
+				6793362F1FAF9CE400DA1B5E /* monster.hpp */,
+				679336401FAF9E2200DA1B5E /* challenge.cpp */,
+				679336411FAF9E2200DA1B5E /* challenge.hpp */,
+				679336341FAF9D6600DA1B5E /* walk_challenge.cpp */,
+				679336351FAF9D6600DA1B5E /* walk_challenge.hpp */,
+				679336371FAF9DB800DA1B5E /* battle_challenge.cpp */,
+				679336381FAF9DB800DA1B5E /* battle_challenge.hpp */,
+				6793363D1FAF9DFF00DA1B5E /* quiz_challenge.cpp */,
+				6793363E1FAF9DFF00DA1B5E /* quiz_challenge.hpp */,
 			);
 			path = "COP3503 Project Group";
 			sourceTree = "<group>";
@@ -119,7 +164,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				679336451FAF9E5300DA1B5E /* entity.cpp in Sources */,
+				6793363F1FAF9DFF00DA1B5E /* quiz_challenge.cpp in Sources */,
+				679336481FAF9E5A00DA1B5E /* item.cpp in Sources */,
+				679336301FAF9CE400DA1B5E /* monster.cpp in Sources */,
+				679336361FAF9D6600DA1B5E /* walk_challenge.cpp in Sources */,
+				679336391FAF9DB800DA1B5E /* battle_challenge.cpp in Sources */,
 				6793361B1FAF98A700DA1B5E /* main.cpp in Sources */,
+				679336421FAF9E2200DA1B5E /* challenge.cpp in Sources */,
+				6793364B1FAF9E6100DA1B5E /* room.cpp in Sources */,
+				679336331FAF9D0A00DA1B5E /* player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
