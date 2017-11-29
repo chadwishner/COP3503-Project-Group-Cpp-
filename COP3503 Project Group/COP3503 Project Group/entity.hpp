@@ -11,4 +11,24 @@
 
 #include <stdio.h>
 
+class Entity
+{
+	private:
+		int hp;
+		int maxhp;
+		int str;
+		int def;
+		int sta;
+		int exp;
+		int die();
+
+	public:
+		Entity(int h, mh, s, d, a);
+		int getHP();
+		int getStr();
+		int getDef();
+		int getSta();
+		void takeDamage(int d);
+		void attack(Entity e);
+};
 #endif /* entity_hpp */
