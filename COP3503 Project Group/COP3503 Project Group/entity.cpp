@@ -9,6 +9,9 @@
 #include "entity.hpp"
 #include <cstdlib.h>
 
+Entity::Entity(int h, int mh, int s, int d, int a) : hp(h), maxhp(mh), str(s), def(d), sta(a)
+{}
+
 int Entity::getHP()
 {
 	return hp;

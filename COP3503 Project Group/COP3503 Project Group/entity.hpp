@@ -13,14 +13,14 @@
 
 class Entity
 {
-	private:
+	protected:
 		int hp;
 		int maxhp;
 		int str;
 		int def;
 		int sta;
 		int exp;
-		int die();
+		virtual int die();
 
 	public:
 		Entity(int h, mh, s, d, a);
