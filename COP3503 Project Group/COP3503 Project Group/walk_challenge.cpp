@@ -7,12 +7,13 @@
 */
 
 #include <iostream>
+#include <string>
 #include <math.h>
 #include "walk_challenge.hpp"
 
 void walkChallenge:: go(){
 	
-	string item;
+	std::string item;
 	
 	int xPosOrNeg = rand() % 2 + 1;
 	int yPosOrNeg = rand() % 10 + 1;
@@ -32,10 +33,10 @@ void walkChallenge:: go(){
 	int playerChoice;
 	while (itemXcor != playerXcor && itemXcor != playerYcor){
 		int distance = sqrt(pow(itemXcor-playerXcor, 2) + pow(itemYcor-playerYcor, 2));
-		cout << "You are " << distance << "units away from the item" << endl;
+		std::cout << "You are " << distance << "units away from the item" << endl;
 		while (playerChoice != 1, playerChoice != 2, playerChoice != 3, playerChoice != 4){
-			cout << "Please select which direction you would like to move:\n1. Left\n2. Right\n3. Forward\n4. Backwards" << endl;
-			cin >> playerChoice;
+			std::cout << "Please select which direction you would like to move:\n1. Left\n2. Right\n3. Forward\n4. Backwards\n";
+			std::cin >> playerChoice;
 			
 			if (playerChoice == 1){
 				playerXcor--;
@@ -48,8 +49,8 @@ void walkChallenge:: go(){
 			}
 		}
 	}
-	cout << "You have reached the item!" << endl;
-	cout << "It is " << item << endl;
+	std::cout << "You have reached the item!\n";
+	std::cout << "It is " << item << "\n";
 	
 	//must return string
 	return item;
