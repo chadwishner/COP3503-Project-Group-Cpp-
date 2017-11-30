@@ -1,10 +1,11 @@
-//
 //  walk_challenge.hpp
 //  COP3503 Project Group
-//
-//  Created by Chad Wishner on 11/5/17.
+
 //  Copyright © 2017 Group 35. All rights reserved.
 //
+
+/*Created walk challenge as a function call, don't see why we need it as an object, could just call 1 of 3 challenge functions in challenge class (challenge class can handle what the item is, and 3 fucntions only have to pass in item and return item when goal is met)
+ */
 
 #ifndef walk_challenge_hpp
 #define walk_challenge_hpp
