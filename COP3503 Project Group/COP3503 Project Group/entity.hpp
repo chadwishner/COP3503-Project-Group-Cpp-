@@ -10,6 +10,7 @@
 #define entity_hpp
 
 #include <stdio.h>
+#include <string>
 
 class Entity
 {
@@ -20,14 +21,17 @@ class Entity
 		int def;
 		int sta;
 		int exp;
+		std::string name;
 		virtual int die();
+		virtual std::string getType();
 
 	public:
-		Entity(int h, mh, s, d, a);
+		Entity(int h, int mh, int s, int d, int a, int e, std::string n);
 		int getHP();
 		int getStr();
 		int getDef();
 		int getSta();
+		std::string getName();
 		void takeDamage(int d);
 		void attack(Entity e);
 };
