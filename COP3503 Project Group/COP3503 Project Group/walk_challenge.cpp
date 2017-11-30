@@ -19,7 +19,7 @@ void walkChallenge:: go(){
 	srand(time(NULL));
 	
 	int xPosOrNeg = rand() % 2 + 1;
-	int yPosOrNeg = rand() % 10 + 1;
+	int yPosOrNeg = rand() % 2 + 1;
 	
 	int itemXcor = 5 + (rand() * (int)(10 - 5) / 10);
 	int itemYcor = 5 + (rand() * (int)(10 - 5) / 10);
@@ -33,11 +33,11 @@ void walkChallenge:: go(){
 	if (yPosOrNeg == 2){
 		itemYcor = -itemYcor;
 	}
-	int playerChoice;
+	int playerChoice = 0;
 	while (itemXcor != playerXcor && itemXcor != playerYcor){
 		int distance = sqrt(pow(itemXcor-playerXcor, 2) + pow(itemYcor-playerYcor, 2));
 		std::cout << "You are " << distance << "units away from the item" << endl;
-		while (playerChoice != 1, playerChoice != 2, playerChoice != 3, playerChoice != 4){
+		do {
 			std::cout << "Please select which direction you would like to move:\n1. Left\n2. Right\n3. Forward\n4. Backwards\n";
 			std::cin >> playerChoice;
 			
@@ -49,8 +49,12 @@ void walkChallenge:: go(){
 				playerYcor++;
 			} else if (playerChoice == 4){
 				playerYcor--;
+			} else {
+				cout << "That is not an acceptable choice, Tsk Tsk, Please Choose 1,2,3, or 4" << endl;
 			}
-		}
+		} while (playerChoice != 1 || playerChoice != 2 || playerChoice != 3 || playerChoice != 4);
+		
+		playerChoice = 0;
 	}
 	std::cout << "You have reached the item!\n";
 	std::cout << "It is " << item << "\n";
