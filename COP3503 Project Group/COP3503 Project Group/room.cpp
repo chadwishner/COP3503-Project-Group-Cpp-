@@ -33,7 +33,14 @@ Monster * Room::getMonster(){
     return m;
 }
 
+challenge * Room::getChallenge(){
+    return ch;
+}
+
+void setComplete(){
+    this->complete = false;
+}
+
 bool Room::isComplete(){
     return complete;
 }
-

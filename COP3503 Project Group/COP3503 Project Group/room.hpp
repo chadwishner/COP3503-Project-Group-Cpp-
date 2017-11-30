@@ -27,9 +27,10 @@ public:
     std::string getMessage();
     std::string getFlavorText();
     std::vector<std::string> getChoices();
+    challenge * getChallenge();
     Monster * getMonster();
+    void setComplete();
     bool isComplete();
 };
-
 
 #endif /* room_hpp */
