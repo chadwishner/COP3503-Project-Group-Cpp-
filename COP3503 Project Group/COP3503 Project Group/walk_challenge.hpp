@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+ //
+=======
+>>>>>>> master
 //  walk_challenge.hpp
 //  COP3503 Project Group
 

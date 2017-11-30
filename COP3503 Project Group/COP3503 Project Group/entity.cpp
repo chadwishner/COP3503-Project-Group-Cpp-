@@ -71,5 +71,7 @@ void Entity::attack(Entity * e)
 		}
 		std::cout << e->getName() << " takes " << damage << " damage!\n";
 		e->takeDamage(damage);
+        //add an exp addition based on room #
 	}
+    //if e is a player, call an exp addition method, return a message that says exp gain
 }
