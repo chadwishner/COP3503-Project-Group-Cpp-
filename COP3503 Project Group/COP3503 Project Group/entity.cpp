@@ -7,7 +7,8 @@
 //
 
 #include "entity.hpp"
-#include <cstdlib.h>
+#include <cstdlib>
+#include <ctime>
 
 Entity::Entity(int h, int mh, int s, int d, int a, int e, std::string n) : hp(h), maxhp(mh), str(s), def(d), sta(a), exp(e), name(n)
 {}
@@ -57,6 +58,7 @@ void Entity::attack(Entity e)
 		std::cout << e->getName() << " attacks!\n";
 	}
 	int damage = str - e->getDef();
+	srand(time(NULL));
 	int chance = rand() % 100 + 1;
 	if (chance > 90) std::cout << "The attack missed!\n";
 	else

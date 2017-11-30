@@ -7,7 +7,8 @@
 //
 
 #include <iostream>
-#include <cstdlib.h>
+#include <cstdlib>
+#include <ctime>
 #include "player.hpp"
 
 Player::Player(std::string n) : hp(20), maxhp(20), str(10), def(10), sta(10), exp(0), level(1), maxexp(30), name(n) // Placeholder default values. Requires playtesting.
@@ -17,6 +18,7 @@ Player::Player(std::string n) : hp(20), maxhp(20), str(10), def(10), sta(10), ex
 
 void Player::levelUp()
 {
+	srand(time(NULL));
 	maxhp += (rand() % 7 + 3);
 	//hp = maxhp // Uncomment if we need to heal the player upon level-up.
 	str += (rand() % 3 + 1);
