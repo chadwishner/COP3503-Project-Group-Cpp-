@@ -9,7 +9,7 @@
 #include "entity.hpp"
 #include <cstdlib.h>
 
-Entity::Entity(int h, int mh, int s, int d, int a) : hp(h), maxhp(mh), str(s), def(d), sta(a)
+Entity::Entity(int h, int mh, int s, int d, int a, int e, std::string n) : hp(h), maxhp(mh), str(s), def(d), sta(a), exp(e), name(n)
 {}
 
 int Entity::getHP()
@@ -32,6 +32,11 @@ int Entity::getSta()
 	return sta;
 }
 
+std::string Entity::getName()
+{
+	return name;
+}
+
 void Entity::takeDamage(int d)
 {
 	hp -= d;
@@ -43,12 +48,25 @@ void Entity::takeDamage(int d)
 
 void Entity::attack(Entity e)
 {
-	int damage = str - e->getDef();
-	int chance = rand() % 100 + 1;
-	if (chance > 90) std::cout << "Your attack missed!\n";
+	if (getType() == "Player")
+	{
+		std::cout << "You attack " << e->getName() << "!\n";
+	}
 	else
 	{
-		if (chance < 10) damage = ceil(damage * 1.2);
+		std::cout << e->getName() << " attacks!\n";
+	}
+	int damage = str - e->getDef();
+	int chance = rand() % 100 + 1;
+	if (chance > 90) std::cout << "The attack missed!\n";
+	else
+	{
+		if (chance < 10)
+		{
+			damage = ceil(damage * 1.2);
+			std::cout << "A critical hit! ";
+		}
+		std::cout << e->getName() << " takes " << damage << " damage!\n";
 		e->takeDamage(damage);
 	}
 }

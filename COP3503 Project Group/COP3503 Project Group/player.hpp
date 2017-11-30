@@ -10,5 +10,24 @@
 #define player_hpp
 
 #include <stdio.h>
+#include <string>
+#include "entity.hpp"
+
+class Player: public Entity
+{
+	private:
+		int level;
+		int maxexp;
+		std::string inventory[5];
+		void levelUp();
+		int die() override;
+		std::string getType() override;
+
+	public:
+		Player(std::string n);
+		void heal(int h);
+		std::string * getInv();
+		void displayStatus();
+};
 
 #endif /* player_hpp */
