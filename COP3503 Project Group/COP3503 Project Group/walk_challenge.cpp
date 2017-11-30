@@ -2,7 +2,9 @@
 //  COP3503 Project Group
 
 //  Copyright © 2017 Group 35. All rights reserved.
-//
+
+/*Created walk challenge as a function call, don't see why we need it as an object, could just call 1 of 3 challenge functions in challenge class (challenge class can handle what the item is, and 3 fucntions only have to pass in item and return item when goal is met)
+*/
 
 #include <iostream>
 #include <math.h>
