@@ -7,3 +7,17 @@
 //
 
 #include "room.hpp"
+#include "challenge.hpp"
+
+Room::Room(std::string message){
+    //challenge = new Challenge();
+    this->complete = false;
+}
+
+std::string Room::getMessage(){
+    return message;
+}
+
+void Room::printChoices(){
+    
+}
