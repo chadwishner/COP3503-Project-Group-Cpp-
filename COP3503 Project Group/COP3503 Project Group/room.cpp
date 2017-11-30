@@ -9,8 +9,8 @@
 #include "room.hpp"
 #include "challenge.hpp"
 
-Room::Room(std::string message){
-    //challenge = new Challenge();
+Room::Room(challenge c, std::string message, std::vector<std::string> choices){
+    this->message = message;
     this->complete = false;
 }
 
@@ -18,6 +18,11 @@ std::string Room::getMessage(){
     return message;
 }
 
-void Room::printChoices(){
-    
+std::vector<std::string> Room::getChoices(){
+    return choices;
 }
+
+bool Room::isComplete(){
+    return complete;
+}
+

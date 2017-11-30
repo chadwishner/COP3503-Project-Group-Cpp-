@@ -16,14 +16,16 @@
 
 class Room{
 private:
-    //Challenge challenge;
+    challenge * challenge;
     bool complete; // If true, player can move on to next room
     std::string message; // Flavor text displayed when room is entered
     std::vector<std::string> choices;
 public:
-    Room(std::string message); // Constructor subject to change based on structure of program
+    Room(challenge c, std::string message, std::vector<std::string> choices); // Constructor subject to change based on structure of program
     std::string getMessage();
-    void printChoices();
+    std::vector<std::string> getChoices();
+    bool isComplete();
+   
 };
 
 
