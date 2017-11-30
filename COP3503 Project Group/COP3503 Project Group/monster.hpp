@@ -8,5 +8,19 @@
 #define monster_hpp
 
 #include <stdio.h>
+#include <iostream>
+#include "entity.hpp"
+
+// Framework for Monster class, needs to be finalized
+
+class Monster : public Entity{
+private:
+    int hp;
+    int maxhp;
+public:
+    std::string getType();
+    void displayStatus();
+    int die(); // Not sure why this returns an int, needs clarification
+};
 
 #endif /* monster_hpp */

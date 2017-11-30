@@ -5,9 +5,8 @@
 //
 
 #include "monster.hpp"
-Monster:Entity
 
-string monsters[6] = {"Gator Growl Flyerers","A Seminole", "The Peace Guy", "DM Venmo Requests", "Hurricane Irma", "Segfault"};
+std::string monsters[6] = {"Gator Growl Flyerers","A Seminole", "The Peace Guy", "DM Venmo Requests", "Hurricane Irma", "Segfault"};
 
 int Monster::die()
 {
