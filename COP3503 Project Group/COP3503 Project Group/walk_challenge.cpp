@@ -9,11 +9,14 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <cstdlib>
+#include <ctime>
 #include "walk_challenge.hpp"
 
 void walkChallenge:: go(){
 	
 	std::string item;
+	srand(time(NULL));
 	
 	int xPosOrNeg = rand() % 2 + 1;
 	int yPosOrNeg = rand() % 10 + 1;
