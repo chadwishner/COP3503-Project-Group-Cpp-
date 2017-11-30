@@ -34,7 +34,7 @@ void walkChallenge:: go(){
 		itemYcor = -itemYcor;
 	}
 	int playerChoice = 0;
-	while (itemXcor != playerXcor && itemXcor != playerYcor){
+	while (itemXcor != playerXcor && itemYcor != playerYcor){
 		int distance = sqrt(pow(itemXcor-playerXcor, 2) + pow(itemYcor-playerYcor, 2));
 		std::cout << "You are " << distance << "units away from the item" << endl;
 		do {
