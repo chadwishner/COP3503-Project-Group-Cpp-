@@ -12,8 +12,6 @@ string monsters[6] = {"Gator Growl Flyerers","A Seminole", "The Peace Guy", "DM 
 int Monster::die()
 {
     std::cout << "Congratulations! You have slain " << monsters[roomNum] << "!";
-    displayStatus();
-
 }
 //what's this for
 std::string getType()
