@@ -47,7 +47,7 @@ void Entity::takeDamage(int d)
 	}
 }
 
-void Entity::attack(Entity e)
+void Entity::attack(Entity * e)
 {
 	if (getType() == "Player")
 	{
@@ -58,6 +58,7 @@ void Entity::attack(Entity e)
 		std::cout << e->getName() << " attacks!\n";
 	}
 	int damage = str - e->getDef();
+	if (damage < 0) damage = 0;
 	srand(time(NULL));
 	int chance = rand() % 100 + 1;
 	if (chance > 90) std::cout << "The attack missed!\n";

@@ -33,6 +33,6 @@ class Entity
 		int getSta();
 		std::string getName();
 		void takeDamage(int d);
-		void attack(Entity e);
+		void attack(Entity * e);
 };
 #endif /* entity_hpp */
