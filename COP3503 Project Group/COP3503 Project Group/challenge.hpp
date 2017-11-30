@@ -9,6 +9,14 @@
 #ifndef challenge_hpp
 #define challenge_hpp
 
-#include <stdio.h>
+#include <string>
+
+using namespace std;
+
+class challenge {
+	protected:		string item;
+	public:			string win();
+					void go();
+};
 
 #endif /* challenge_hpp */
