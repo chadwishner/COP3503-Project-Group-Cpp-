@@ -7,3 +7,5 @@
 //
 
 #include "room.hpp"
+
+Room:Room(int roomNum)
