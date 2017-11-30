@@ -15,8 +15,9 @@ using namespace std;
 
 class challenge {
 	protected:		string item;
-	public:			string win();
-					void go();
+	public:			string go(string item);
 };
 
+void walkChallenge(string item);
+void quizChallenge(string item);
 #endif /* challenge_hpp */
