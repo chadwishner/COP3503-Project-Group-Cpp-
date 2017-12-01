@@ -66,7 +66,7 @@ void challenge:: walkChallenge(){
 	int playerChoice = 0;
 	while (itemXcor != playerXcor && itemYcor != playerYcor){
 		int distance = sqrt(pow(itemXcor-playerXcor, 2) + pow(itemYcor-playerYcor, 2));
-		std::cout << "You are " << distance << "units away from the item" << endl;
+		std::cout << "You are " << distance << " units away from the item\n";
 		do {
 			std::cout << "Please select which direction you would like to move:\n1. Left\n2. Right\n3. Forward\n4. Backwards\n";
 			std::cin >> playerChoice;
@@ -80,14 +80,13 @@ void challenge:: walkChallenge(){
 			} else if (playerChoice == 4){
 				playerYcor--;
 			} else {
-				cout << "That is not an acceptable choice, Tsk Tsk, Please Choose 1,2,3, or 4" << endl;
+				cout << "That is not an acceptable choice, tsk tsk. Please choose 1,2,3, or 4\n";
 			}
 		} while (playerChoice != 1 && playerChoice != 2 && playerChoice != 3 && playerChoice != 4);
 		
 		playerChoice = 0;
 	}
 	std::cout << "You have reached the item!\n";
-	std::cout << "It is " << item << "\n";
 }
 
 
@@ -100,29 +99,28 @@ void quizChallenge(){
 	string responseAccept;
 	
 	int number = rand() % 9 +1;
-	string questions[] = {"What Year was UF established?\n\t1.1905\n\t2.1968\n\t3.1853\n\t4.1492",
-		"Who is the President of UF?\n\t1.Eliahu Hanavid\n\t2.Kent Fuchs\n\t3.Korpus Kane\n\t4.Isaac Roth",
+	string questions[] = {"What year was UF established?\n\t1.1905\n\t2.1968\n\t3.1853\n\t4.1492",
+		"Who is the president of UF?\n\t1.Eliahu Hanavid\n\t2.Kent Fuchs\n\t3.Korpus Kane\n\t4.Isaac Roth",
 		"What atlethics conference does the university belong to?\n\t1.NCAA\n\t2.PHP\n\t3.SEC\n\t4.MBAA",
 		"How many stoplights are on the actual campus?\n\t1.4\n\t2.5\n\t3.6\n\t4.3",
-		"What are the husband and wife mascots names?\n\t1.Albert and Longtail\n\t2.Longtail and Louis\n\t3.Albert and Alberta\n\t4.Alec and Ashley",
+		"What are the husband and wife mascots' names?\n\t1.Albert and Longtail\n\t2.Longtail and Louis\n\t3.Albert and Alberta\n\t4.Alec and Ashley",
 		"What is the name of the alumni hall?\n\t1.Grant\n\t2.Warrington\n\t3.Emerson\n\t4.Hume",
-		"Florida's only undefeated and un-tied regular season was (includes conference championship game:\n\t1.1994\n\t2.1995\n\t3.1996\n\t4.2009",
+		"Florida's only undefeated and un-tied regular season was (includes conference championship game):\n\t1.1994\n\t2.1995\n\t3.1996\n\t4.2009",
 		"The all-time career passing yards leader in Florida history is:\n\t1.Chris Leak\n\t2.Shane Matthews\n\t3.Tim Tebow\n\t4.Rex Grossman",
 		"What was the earliest college founded at the university (in 1906)?\n\t1.College of Agricultural and Life Sciences\n\t2.College of Engineering\n\t3.College of Liberal Arts\n\t4.College of Medicine.",
 		"Who is the student union named after? \n\t1.Reitz Ritz\n\t2.P. Carter Reitz\n\t3.John Reitz III\n\t4.J. Wayne Reitz"};
 	int answers[10] = {3,2,3,2,1,3,2,1,1,4};
 	
-	cout << "Welcome to the Quiz Challenge adventurous student. In order to proceed you must answer the question correct. Everytime you choose a wrong answer, your grade will be deducted by 10 points.Do you accept?\n(Enter your answers as numbers)\n\t1.Yes I do\n\t2.No, I dont, im a snowflake.";
+	cout << "Welcome to the Quiz Challenge, adventurous student. In order to proceed, you must answer the question correctly. Every time you choose a wrong answer, your grade will be deducted by 10 points. Do you accept?\n(Enter your answers as numbers)\n\t1.COME AT ME\n\t2.No, I don't. I'm a snowflake.\n";
 	cin >> response;
 	if(response == 2){
-		cout<<"Too Bad,Office Hours were cancelled, you have no choice but to face your destiny solo.\n";
+		cout<<"Too bad. Office hours were cancelled; you have no choice but to face your destiny solo.\n";
 	}
 	while (!proceed) {
 		response = 0;
 		cout << questions[number];
 		cin >> response;
 		if (response != answers[number]){
-			cout<<"Wrong Answer Try Again; Subtract 10 Health";
 			number = rand() % 9 + 1;
 		}else{
 			cout<<"Congratulations! On with your education.";
