@@ -15,24 +15,24 @@
 class Entity
 {
 	protected:
-		int hp;
-		int maxhp;
-		int str;
-		int def;
-		int sta;
-		int exp;
-		std::string name;
+		virtual int hp;
+		virtual int maxhp;
+		virtual int str;
+		virtual int def;
+		virtual int sta;
+		virtual int exp;
+		virtual std::string name;
 		virtual int die();
 		virtual std::string getType();
 
 	public:
 		Entity(int h, int mh, int s, int d, int a, int e, std::string n);
-		int getHP();
-		int getStr();
-		int getDef();
-		int getSta();
-		std::string getName();
-		int takeDamage(int d);
-		int attack(Entity * e);
+		virtual int getHP();
+		virtual int getStr();
+		virtual int getDef();
+		virtual int getSta();
+		virtual std::string getName();
+		virtual int takeDamage(int d);
+		virtual int attack(Entity * e);
 };
 #endif /* entity_hpp */
