@@ -32,7 +32,7 @@ class Entity
 		int getDef();
 		int getSta();
 		std::string getName();
-		void takeDamage(int d);
-		void attack(Entity * e);
+		int takeDamage(int d);
+		int attack(Entity * e);
 };
 #endif /* entity_hpp */

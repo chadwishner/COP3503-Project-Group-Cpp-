@@ -22,7 +22,8 @@ void GameEngine::battle(Monster * m)
 		switch (choice)
 		{
 			case 1:
-				p->attack(m);
+				int spoils = p->attack(m);
+				if (spoils != 0) p->gainExp(spoils);
 				break;
 			case 2:
 				bool hasDrink = false;

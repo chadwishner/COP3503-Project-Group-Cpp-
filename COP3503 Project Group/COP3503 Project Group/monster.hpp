@@ -14,13 +14,10 @@
 // Framework for Monster class, needs to be finalized
 
 class Monster : public Entity{
-private:
-    int hp;
-    int maxhp;
 public:
-    std::string getType();
-    void displayStatus();
-    int die(); // Not sure why this returns an int, needs clarification
+    Monster(int h, int mh, int s, int d, int a, int e, std::string n)
+    std::string getType() override;
+    int die() override;
 };
 
 #endif /* monster_hpp */

@@ -38,16 +38,17 @@ std::string Entity::getName()
 	return name;
 }
 
-void Entity::takeDamage(int d)
+int Entity::takeDamage(int d)
 {
 	hp -= d;
 	if (hp <= 0)
 	{
-		die();
+		return die();
 	}
+	else return 0;
 }
 
-void Entity::attack(Entity * e)
+int Entity::attack(Entity * e)
 {
 	if (getType() == "Player")
 	{
@@ -70,8 +71,8 @@ void Entity::attack(Entity * e)
 			std::cout << "A critical hit! ";
 		}
 		std::cout << e->getName() << " takes " << damage << " damage!\n";
-		e->takeDamage(damage);
-        //add an exp addition based on room #
+		int spoils = e->takeDamage(damage);
+		return spoils;
 	}
-    //if e is a player, call an exp addition method, return a message that says exp gain
+	return 0;
 }

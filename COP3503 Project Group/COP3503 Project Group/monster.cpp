@@ -6,21 +6,28 @@
 
 #include "monster.hpp"
 
-std::string monsters[6] = {"Gator Growl Flyerers","A Seminole", "The Peace Guy", "DM Venmo Requests", "Hurricane Irma", "Segfault"};
+//std::string monsters[6] = {"Gator Growl Flyerers","A Seminole", "The Peace Guy", "DM Venmo Requests", "Hurricane Irma", "Segfault"};
 
-int Monster::die()
+Monster::Monster(int h, int mh, int s, int d, int a, int e, std::string n) : hp(h), maxhp(mh), str(s), def(d), sta(a), exp(e), name(n)
+{}
+
+int Monster::die() override
 {
-    std::cout << "Congratulations! You have slain " << monsters[roomNum] << "!";
+    std::cout << "Congratulations! You have slain " << name << "!\n";
+    std::cout << "You gained " << exp << " experience points!\n";
+    return exp;
 }
 //what's this for
-std::string getType()
+std::string Monster::getType() override
 {
     return "Monster";
 }
 
+/*
 void Monster::displayStatus()
 {
     std::cout << "HP: " << hp << "/" << maxhp;
     std::cout << "\n";
 }
+*/
 

@@ -18,19 +18,28 @@ Player::Player(std::string n) : hp(20), maxhp(20), str(10), def(10), sta(10), ex
 
 void Player::levelUp()
 {
+	level++;
+	std::cout << "You leveled up! You are now level " << level << "!\n";
 	srand(time(NULL));
-	maxhp += (rand() % 7 + 3);
+	int mhpboost = (rand() % 7 + 3);
+	maxhp += mhpboost;
+	std::cout << "Your maximum HP increased by " << mhpboost << "!\n";
 	//hp = maxhp // Uncomment if we need to heal the player upon level-up.
-	str += (rand() % 3 + 1);
-	def += (rand() % 3 + 1);
-	sta += (rand() % 3 + 1);
+	int strboost = (rand() % 3 + 1);
+	str += strboost;
+	std::cout << "Your strength increased by " << strboost << "!\n";
+	int defboost = (rand() % 3 + 1);
+	def += defboost;
+	std::cout << "Your defense increased by " << defboost << "!\n";
+	int staboost = (rand() % 3 + 1);
+	sta += staboost;
+	std::cout << "Your stamina increased by " << staboost << "!\n";
 	exp = maxexp - exp;
 	maxexp += 10;
-	level++;
 	// Placeholder values. Playtest these!
 }
 
-int Player::die()
+int Player::die() override
 {
 	std::cout << "Alas, brave warrior, you are slain! Expect another semester of COP 3502 in your future.\n";
 	std::cout << "Your stats were:\n";
@@ -39,7 +48,7 @@ int Player::die()
 	return 0;
 }
 
-std::string getType()
+std::string getType() override
 {
 	return "Player";
 }
@@ -48,6 +57,12 @@ void Player::heal(int h)
 {
 	hp += h;
 	if (hp > maxhp) hp = maxhp;
+}
+
+void Player::gainExp(int e)
+{
+	exp += e;
+	if (exp >= maxexp) levelUp();
 }
 
 std::string * Player::getInv()

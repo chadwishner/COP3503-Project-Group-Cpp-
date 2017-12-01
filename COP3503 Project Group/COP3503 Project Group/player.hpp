@@ -26,6 +26,7 @@ class Player: public Entity
 	public:
 		Player(std::string n);
 		void heal(int h);
+		void gainExp(int e);
 		std::string * getInv();
 		void displayStatus();
 };
