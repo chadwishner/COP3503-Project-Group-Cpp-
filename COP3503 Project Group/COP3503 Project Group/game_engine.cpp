@@ -1,0 +1,141 @@
+#include "game_engine.hpp"
+#include "room.hpp"
+#include "player.hpp"
+#include "monster.hpp"
+#include "challenge.hpp"
+
+GameEngine::GameEngine(Player * p, std::queue<Room *> * r) : player(p), rooms(r)
+{}
+
+void GameEngine::battle(Monster * m)
+{
+	std::cout << "A wild " << m->getName() << " attacks!\n\n";
+	int choice = 0;
+	while (m->getHP() > 0)
+	{
+		std::cout << "What will you do?\n";
+		std::cout << "1. Attack\n";
+		std::cout << "2. Chug a Gatorade\n";
+		std::cout << "3. View your status\n";
+		std::cout << "4. Flee\n\n";
+		std::cin >> choice;
+		switch (choice)
+		{
+			case 1:
+				int spoils = p->attack(m);
+				if (spoils != 0) p->gainExp(spoils);
+				break;
+			case 2:
+				bool hasDrink = false;
+				int drinkIndex = 0;
+				for (i = 0; i < 5; i++)
+				{
+					if (p->getInventory()[i] == "Gatorade")
+					{
+						hasDrink = true;
+						drinkIndex = i;
+						break;
+					}
+				}
+				if (hasDrink)
+				{
+					std::cout << "You vigorously drink a Gatorade and regain 20 health!\n\n";
+					p->heal(20);
+					p->getInventory()[drinkIndex] = "None";
+				}
+				else
+				{
+					std::cout << "You don't have any Gatorade to chug!\n\n";
+				}
+				break;
+			case 3:
+				p->displayStatus();
+				break;
+			case 4:
+				std::cout << "You flee the fight, tail between your legs. " << m->getName() << " lives to see another day.\n\n";
+				return;
+		}
+		if (m->getHP() > 0) m->attack(p);
+	}
+}
+
+void GameEngine::go()
+{
+	if (rooms->empty() == false)
+	{
+		roomLoop();
+	}
+}
+
+void GameEngine::roomLoop()
+{
+	Room * r = rooms->pop();
+	std::cout << r->getMessage();
+	int input = 0;
+	while (true) // Does this work as a loop condition? Should it be something else?
+	{
+		int choices = r->getChoices->size();
+		for (int i = 0; i < choices; i++)
+		{
+			std::cout << i + 1 << ". " << r->getChoices()->at(i) << "\n";
+		}
+		std::cout << choices << ". Check your status\n";
+		std::cout << "\nWhat will you do? ";
+		std::cin >> input;
+		switch(input)
+		{
+			case 1:
+				std::cout << r->getFlavorText();
+				break;
+			case 2:
+				battle(r->getMonster());
+				break;
+			case 3: // Come back to this. Will get complicated.
+				if (r->isComplete())
+				{
+					std::cout << "You already did this.\n";
+					break;
+				}
+				else
+				{
+					std::string item = r->getChallenge()->go();
+					std::cout << "You got a " << item << "!\n";
+					if (item == "key")
+					{
+						std::cout << "Before you can put it in your inventory, the key flies to the door, unlocks it, and disappears.";
+						r->setComplete();
+					}
+					else
+					{
+						std::cout << "It flies to the door, jams itself into the keyhole, and unlocks it somehow.\n";
+						int openIndex = -1;
+						for (int i = 0; i < 5; i++)
+						{
+							if (p->getInventory()[i] == "None")
+							{
+								openIndex = i;
+								break;
+							}
+						}
+						if (openIndex == -1)
+						{
+							std::cout << "And then, equally mysteriously, it disintegrates.\n";
+						}
+						else
+						{
+							std::cout << "Then it flies back to you and goes into your inventory.\n";
+							p->getInventory()[openIndex] = item;
+						}
+					}
+				}
+				break;
+			case 4:
+				if (r->isComplete()) go();
+				else std::cout << "Try as you might, you cannot open the door, for it is locked. You'll have to find a key.\n";
+				break;
+			case 5:
+				p->displayStatus();
+				break;
+		}
+	}
+}

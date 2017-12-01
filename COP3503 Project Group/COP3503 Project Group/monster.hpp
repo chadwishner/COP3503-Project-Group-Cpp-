@@ -1,8 +1,6 @@
 //
 //  monster.hpp
 //  COP3503 Project Group
-//
-//  Created by Chad Wishner on 11/5/17.
 //  Copyright © 2017 Group 35. All rights reserved.
 //
 
@@ -10,5 +8,22 @@
 #define monster_hpp
 
 #include <stdio.h>
+#include <iostream>
+#include "entity.hpp"
+
+// Framework for Monster class, needs to be finalized
+
+class Monster : public Entity{
+	private:	int hp;
+				int maxhp;
+				int str;
+				int def;
+				int sta;
+				int exp;
+
+public:		Monster(int h, int mh, int s, int d, int a, int e, std::string n);
+				std::string getType() override;
+				int die() override;
+};
 
 #endif /* monster_hpp */

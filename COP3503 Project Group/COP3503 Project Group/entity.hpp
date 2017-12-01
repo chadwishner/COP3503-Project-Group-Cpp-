@@ -10,25 +10,29 @@
 #define entity_hpp
 
 #include <stdio.h>
+#include <string>
 
 class Entity
 {
-	private:
+	protected:
 		int hp;
 		int maxhp;
 		int str;
 		int def;
 		int sta;
 		int exp;
-		int die();
+		std::string name;
+		virtual int die();
+		virtual std::string getType();
 
 	public:
-		Entity(int h, mh, s, d, a);
-		int getHP();
-		int getStr();
-		int getDef();
-		int getSta();
-		void takeDamage(int d);
-		void attack(Entity e);
+		Entity(int h, int mh, int s, int d, int a, int e, std::string n);
+		virtual int getHP();
+		virtual int getStr();
+		virtual int getDef();
+		virtual int getSta();
+		virtual std::string getName();
+		virtual int takeDamage(int d);
+		virtual int attack(Entity * e);
 };
 #endif /* entity_hpp */
