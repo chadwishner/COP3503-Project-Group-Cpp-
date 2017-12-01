@@ -9,8 +9,9 @@
 #include "room.hpp"
 #include "challenge.hpp"
 
-Room::Room(challenge *c, std::string message, std::string flavorText, std::vector<std::string> choices){
+Room::Room(challenge *c, Monster *m, std::string message, std::string flavorText, std::vector<std::string> choices){
     this->ch = c;
+    this->monster = m;
     this->message = message;
     this->flavorText = flavorText;
     this->choices = choices;
@@ -30,7 +31,7 @@ std::string Room::getFlavorText(){
 }
 
 Monster * Room::getMonster(){
-    return m;
+    return monster;
 }
 
 challenge * Room::getChallenge(){
