@@ -1,14 +1,59 @@
 #include "game_engine.hpp"
+#include "room.hpp"
+#include "player.hpp"
+#include "monster.hpp"
+#include "challenge.hpp"
 
 GameEngine::GameEngine(Player * p, std::queue<Room *> * r) : player(p), rooms(r)
 {}
 
 void GameEngine::battle(Monster * m)
 {
-	std::cout << "A wild " << m->getName() << " attacks!\n";
+	std::cout << "A wild " << m->getName() << " attacks!\n\n";
+	int choice = 0;
 	while (m->getHP() > 0)
 	{
-		p->attack(m);
+		std::cout << "What will you do?\n";
+		std::cout << "1. Attack\n";
+		std::cout << "2. Chug a Gatorade\n";
+		std::cout << "3. View your status\n";
+		std::cout << "4. Flee\n\n";
+		std::cin >> choice;
+		switch (choice)
+		{
+			case 1:
+				p->attack(m);
+				break;
+			case 2:
+				bool hasDrink = false;
+				int drinkIndex = 0;
+				for (i = 0; i < 5; i++)
+				{
+					if (p->getInventory()[i] == "Gatorade")
+					{
+						hasDrink = true;
+						drinkIndex = i;
+						break;
+					}
+				}
+				if (hasDrink)
+				{
+					std::cout << "You vigorously drink a Gatorade and regain 20 health!\n\n";
+					p->heal(20);
+					p->getInventory()[drinkIndex] = "None";
+				}
+				else
+				{
+					std::cout << "You don't have any Gatorade to chug!\n\n";
+				}
+				break;
+			case 3:
+				p->displayStatus();
+				break;
+			case 4:
+				std::cout << "You flee the fight, tail between your legs. " << m->getName() << " lives to see another day.\n\n";
+				return;
+		}
 		if (m->getHP() > 0) m->attack(p);
 	}
 }
@@ -62,13 +107,29 @@ void GameEngine::roomLoop()
 					else
 					{
 						std::cout << "It flies to the door, jams itself into the keyhole, and unlocks it somehow.\n";
-						std::cout << "Then it flies back to you and goes into your inventory.\n";
-						//Code to add the item to the inventory
+						int openIndex = -1;
+						for (int i = 0; i < 5; i++)
+						{
+							if (p->getInventory()[i] == "None")
+							{
+								openIndex = i;
+								break;
+							}
+						}
+						if (openIndex == -1)
+						{
+							std::cout << "And then, equally mysteriously, it disintegrates.\n";
+						}
+						else
+						{
+							std::cout << "Then it flies back to you and goes into your inventory.\n";
+							p->getInventory()[openIndex] = item;
+						}
 					}
 				}
 				break;
 			case 4:
-				if (r->isComplete) go();
+				if (r->isComplete()) go();
 				else std::cout << "Try as you might, you cannot open the door, for it is locked. You'll have to find a key.\n";
 				break;
 			case 5:
