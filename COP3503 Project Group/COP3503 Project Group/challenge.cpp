@@ -119,8 +119,8 @@ void quizChallenge(){
 		cout << questions[number];
 		cin >> response;
 		if (response != answers[number]){
-			//health-1, how do i do this? take in paremeter?
 			cout<<"Wrong Answer Try Again; Subtract 10 Health";
+			number = rand() % 9 + 1;
 		}else{
 			cout<<"Congratulations! On with your education.";
 			proceed = true;
