@@ -24,6 +24,7 @@ class Player: public Entity
 		int exp;
 		int level;
 		int maxexp;
+        std::string name;
 		std::string inventory[5];
 		void levelUp();
 		int die() override;

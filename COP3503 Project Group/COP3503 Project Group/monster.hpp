@@ -20,6 +20,7 @@ class Monster : public Entity{
 				int def;
 				int sta;
 				int exp;
+    std::string name;
 
 public:		Monster(int h, int mh, int s, int d, int a, int e, std::string n);
 				std::string getType() override;

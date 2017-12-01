@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include <string>
+#include <iostream>
+#include <cmath>
 
 class Entity
 {

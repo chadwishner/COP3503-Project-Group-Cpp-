@@ -39,7 +39,7 @@ void Player::levelUp()
 	// Placeholder values. Playtest these!
 }
 
-int Player::die() override
+int Player::die()
 {
 	std::cout << "Alas, brave warrior, you are slain! Expect another semester of COP 3502 in your future.\n";
 	std::cout << "Your stats were:\n";
@@ -48,7 +48,7 @@ int Player::die() override
 	return 0;
 }
 
-std::string getType() override
+std::string getType()
 {
 	return "Player";
 }

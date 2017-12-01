@@ -13,6 +13,7 @@
 #include <iostream>
 #include <vector>
 #include "challenge.hpp"
+#include "monster.hpp"
 
 class Room{
 private:
