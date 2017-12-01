@@ -14,10 +14,16 @@
 // Framework for Monster class, needs to be finalized
 
 class Monster : public Entity{
-public:
-    Monster(int h, int mh, int s, int d, int a, int e, std::string n)
-    std::string getType() override;
-    int die() override;
+	private:	int hp;
+				int maxhp;
+				int str;
+				int def;
+				int sta;
+				int exp;
+
+public:		Monster(int h, int mh, int s, int d, int a, int e, std::string n);
+				std::string getType() override;
+				int die() override;
 };
 
 #endif /* monster_hpp */

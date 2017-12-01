@@ -15,13 +15,13 @@
 class Entity
 {
 	protected:
-		virtual int hp;
-		virtual int maxhp;
-		virtual int str;
-		virtual int def;
-		virtual int sta;
-		virtual int exp;
-		virtual std::string name;
+		int hp;
+		int maxhp;
+		int str;
+		int def;
+		int sta;
+		int exp;
+		std::string name;
 		virtual int die();
 		virtual std::string getType();
 

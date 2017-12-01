@@ -16,6 +16,12 @@
 class Player: public Entity
 {
 	private:
+		int hp;
+		int maxhp;
+		int str;
+		int def;
+		int sta;
+		int exp;
 		int level;
 		int maxexp;
 		std::string inventory[5];
