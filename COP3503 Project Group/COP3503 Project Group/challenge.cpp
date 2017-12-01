@@ -92,6 +92,9 @@ void challenge:: walkChallenge(){
 
 
 void quizChallenge(){
+	
+	srand(time(NULL));
+	
 	bool proceed = false;
 	int response;
 	string responseAccept;
