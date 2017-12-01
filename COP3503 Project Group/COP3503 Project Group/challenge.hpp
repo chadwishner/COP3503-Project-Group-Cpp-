@@ -14,10 +14,13 @@
 using namespace std;
 
 class challenge {
-	protected:		string item;
-	public:			string go(string item);
+	private:		string item;
+					int challengeType;
+					void walkChallenge();
+					void quizChallenge();
+	public:			string go();
+					challenge();
+					challenge(int challengeType, string item);
 };
 
-void walkChallenge(string item);
-void quizChallenge(string item);
 #endif /* challenge_hpp */
