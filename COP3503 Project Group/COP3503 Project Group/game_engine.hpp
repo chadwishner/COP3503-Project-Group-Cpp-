@@ -14,6 +14,7 @@ class GameEngine{
 	private:        Player * player;
                     std::queue<Room *> * rooms;
                     void battle(Monster * m);
+		    void roomLoop();
 
 	public:         GameEngine(Player * p, std::queue<Room *> * r);
                     void go();
