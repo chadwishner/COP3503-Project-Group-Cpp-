@@ -19,41 +19,40 @@ void GameEngine::battle(Monster * m)
 		std::cout << "3. View your status\n";
 		std::cout << "4. Flee\n\n";
 		std::cin >> choice;
-		switch (choice)
+		if (choice == 1)
 		{
-			case 1:
-				int spoils = player->attack(m);
-				if (spoils != 0) player->gainExp(spoils);
-				break;
-			case 2:
-				bool hasDrink = false;
-				int drinkIndex = 0;
-				for (i = 0; i < 5; i++)
+			int spoils = player->attack(m);
+			if (spoils != 0) player->gainExp(spoils);
+		}
+		else if (choice == 2)
+		{
+			bool hasDrink = false;
+			int drinkIndex = 0;
+			for (int i = 0; i < 5; i++)
+			{
+				if (player->getInventory()[i] == "Gatorade")
 				{
-					if (player->getInventory()[i] == "Gatorade")
-					{
-						hasDrink = true;
-						drinkIndex = i;
-						break;
-					}
+					hasDrink = true;
+					drinkIndex = i;
+					break;
 				}
-				if (hasDrink)
-				{
-					std::cout << "You vigorously drink a Gatorade and regain 20 health!\n\n";
-					player->heal(20);
-					player->getInventory()[drinkIndex] = "None";
-				}
-				else
-				{
-					std::cout << "You don't have any Gatorade to chug!\n\n";
-				}
-				break;
-			case 3:
-				player->displayStatus();
-				break;
-			case 4:
-				std::cout << "You flee the fight, tail between your legs. " << m->getName() << " lives to see another day.\n\n";
-				return;
+			}
+			if (hasDrink)
+			{
+				std::cout << "You vigorously drink a Gatorade and regain 20 health!\n\n";
+				player->heal(20);
+				player->getInventory()[drinkIndex] = "None";
+			}
+			else
+			{
+				std::cout << "You don't have any Gatorade to chug!\n\n";
+			}
+		}
+		else if (choice == 3) player->displayStatus();
+		else if (choice == 4)
+		{
+			std::cout << "You flee the fight, tail between your legs. " << m->getName() << " lives to see another day.\n\n";
+			return;
 		}
 		if (m->getHP() > 0) m->attack(player);
 	}
