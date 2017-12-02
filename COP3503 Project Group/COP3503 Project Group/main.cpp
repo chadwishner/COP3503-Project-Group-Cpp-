@@ -113,27 +113,24 @@ int main(int argc, const char * argv[]) {
     
     //Room 8 : Dungeon goes here
     
-    
-    
-// The following lines are a template for more rooms.
     c = challenge();
-    
-    message = ""; // Insert room-entry message here.
-   
-    flavorText = ""; // Insert "examine" text here.
-   
+
+    message = "It has been a long and tough journey, but you have finally made it to the dungeon. There is only one thing between you and your A now: the dreaded segmentation fault. It mocks you with its vague and unhelpful error message. What has caused it? What can fix it? The compiler refuses to say. Only you can put a stop to this error's wicked ways. The time has come to do battle.";
+
+    flavorText = "There is not a soul in sight. The stage is set for your final showdown. No obstructions, no distractions - the time is now.";
+
     choices = {
-	"", // Insert "examine" choice here.
-	"", // Insert "battle" choice here.
-	"", // Insert "challenge" choice here.
-	"" // Insert "leave" choice here.
+	"Survey the territory.",
+	"Confront the almighty segfault.",
+	"Scrounge for a Gatorade.",
+	"Onward!",
     };
-   
-    m = Monster(0, 0, 0, 0, 0, 0, ""); // Insert, in this order, the HP, max HP, STR, DEF, STA, EXP yield upon death, name.
+
+    m = Monster(0, 0, 0, 0, 0, 0, "SEGFAULT");
+
     r = new Room(&c, &m, message, flavorText, choices);
     roomList->push(r);
-// The previous lines are a template for more rooms.
-
+    
     GameEngine * g = new GameEngine(p, roomList);
     g->go();
 
