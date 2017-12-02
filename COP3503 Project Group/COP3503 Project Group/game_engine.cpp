@@ -58,8 +58,10 @@ void GameEngine::go(){
 	}
 }
 
-void GameEngine::roomLoop(){
-	Room * r = rooms -> pop();
+void GameEngine::roomLoop()
+{
+	Room * r = rooms->front();
+	rooms->pop();
 	std::cout << r->getMessage();
 	int input = 0;
 	while (true){ // Does this work as a loop condition? Should it be something else?
