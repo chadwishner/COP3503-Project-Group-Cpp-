@@ -1,10 +1,7 @@
-//
 //  player.hpp
 //  COP3503 Project Group
-//
-//  Created by Chad Wishner on 11/5/17.
+
 //  Copyright © 2017 Group 35. All rights reserved.
-//
 
 #ifndef player_hpp
 #define player_hpp
@@ -13,8 +10,7 @@
 #include <string>
 #include "entity.hpp"
 
-class Player: public Entity
-{
+class Player: public Entity{
 	private:
 		int hp;
 		int maxhp;
