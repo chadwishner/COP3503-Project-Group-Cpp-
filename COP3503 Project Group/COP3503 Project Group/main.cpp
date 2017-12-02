@@ -18,6 +18,8 @@ int main(int argc, const char * argv[]) {
     Player * p = new Player(name);
     std::queue<Room *> * roomList = new std::queue<Room *>();
 
+//  Room 1 : NPB 1001
+    
     challenge c = challenge();
    
     std::string message = "It is 7:25 AM, and you're wishing you could be anywhere but here. Your mind can do nothing but wander, try as you might to focus.\nYes - you're in NPB 1001.\n";
@@ -34,6 +36,23 @@ int main(int argc, const char * argv[]) {
     Monster m = Monster(5, 5, 11, 8, 10, 30, "DR. KAVALAN");
     Room * r = new Room(&c, &m, message, flavorText, choices);
     roomList->push(r);
+    
+//  Room 2 : Bookstore
+    
+    challenge c2 = challenge(2, "key");
+    std::string message2 = "After that experience, you decide to pay a visit the campus bookstore. Yes, the prices here are exorbitantly high, but at this point, you might be able to get more out of a textbook than a 7:25 lecture. Perhaps you will be able to find a clue here to help you debug your program.";
+    std::string flavorText2 = "You pick up the nearest copy of C++ Primer, Fifth Edition and begin to flip through the pages. This would be a convenient resource, if not for the fact that it's nearly 1000 pages long. Stack Overflow would be much more helpful here.";
+    std::vector<std::string> choices2 = {
+        "Open up a C++ textbook.",
+        "Wander the shelves.",
+        "Talk to an employee.",
+        "Leave the bookstore."
+    };
+    Monster m2 = Monster(8, 8, 13, 10, 15, 45, "overpriced textbook");
+    Room * r2 = new Room(&c, &m, message, flavorText, choices);
+    roomList->push(r2);
+    
+//  Room 3 goes here
 
 // The following lines are a template for more rooms.
     c = challenge();
