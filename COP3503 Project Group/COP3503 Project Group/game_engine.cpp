@@ -23,42 +23,42 @@ void GameEngine::battle(Monster * m){
 		std::cout << "3. View your status\n";
 		std::cout << "4. Flee\n\n";
 		std::cin >> choice;
-		switch (choice){
-			case 1:
-				int spoils = person -> attack(m);
-				if (spoils != 0) person -> gainExp(spoils);
-				break;
-			case 2:
-				bool hasDrink = false;
-				int drinkIndex = 0;
-				for (i = 0; i < 5; i++)
-				{
-					if (p->getInventory()[i] == "Gatorade")
-					{
-						hasDrink = true;
-						drinkIndex = i;
-						break;
-					}
-				}
-				if (hasDrink)
-				{
-					std::cout << "You vigorously drink a Gatorade and regain 20 health!\n\n";
-					p->heal(20);
-					p->getInventory()[drinkIndex] = "None";
-				}
-				else
-				{
-					std::cout << "You don't have any Gatorade to chug!\n\n";
-				}
-				break;
-			case 3:
-				p->displayStatus();
-				break;
-			case 4:
-				std::cout << "You flee the fight, tail between your legs. " << m->getName() << " lives to see another day.\n\n";
-				return;
+		if (choice == 1)
+		{
+			int spoils = player->attack(m);
+			if (spoils != 0) player->gainExp(spoils);
 		}
-		if (m->getHP() > 0) m->attack(p);
+		else if (choice == 2)
+		{
+			bool hasDrink = false;
+			int drinkIndex = 0;
+			for (int i = 0; i < 5; i++)
+			{
+				if (player->getInventory()[i] == "Gatorade")
+				{
+					hasDrink = true;
+					drinkIndex = i;
+					break;
+				}
+			}
+			if (hasDrink)
+			{
+				std::cout << "You vigorously drink a Gatorade and regain 20 health!\n\n";
+				player->heal(20);
+				player->getInventory()[drinkIndex] = "None";
+			}
+			else
+			{
+				std::cout << "You don't have any Gatorade to chug!\n\n";
+			}
+		}
+		else if (choice == 3) player->displayStatus();
+		else if (choice == 4)
+		{
+			std::cout << "You flee the fight, tail between your legs. " << m->getName() << " lives to see another day.\n\n";
+			return;
+		}
+		if (m->getHP() > 0) m->attack(player);
 	}
 }
 
@@ -85,60 +85,49 @@ void GameEngine::roomLoop()
 		std::cout << choices << ". Check your status\n";
 		std::cout << "\nWhat will you do? ";
 		std::cin >> input;
-		switch(input)
+		if (input == 1) std::cout << r->getFlavorText();
+		else if (input == 2) battle(r->getMonster());
+		else if (input == 3)
 		{
-			case 1:
-				std::cout << r->getFlavorText();
-				break;
-			case 2:
-				battle(r->getMonster());
-				break;
-			case 3: // Come back to this. Will get complicated.
-				if (r->isComplete())
+			if (r->isComplete()) std::cout << "You already did this.\n";
+			else
+			{
+				std::string item = r->getChallenge()->go();
+				std::cout << "You got a " << item << "!\n";
+				if (item == "key")
 				{
-					std::cout << "You already did this.\n";
-					break;
+					std::cout << "Before you can put it in your inventory, the key flies to the door, unlocks it, and disappears.";
+					r->setComplete();
 				}
 				else
 				{
-					std::string item = r->getChallenge()->go();
-					std::cout << "You got a " << item << "!\n";
-					if (item == "key")
+					std::cout << "It flies to the door, jams itself into the keyhole, and unlocks it somehow.\n";
+					int openIndex = -1;
+					for (int i = 0; i < 5; i++)
 					{
-						std::cout << "Before you can put it in your inventory, the key flies to the door, unlocks it, and disappears.";
-						r->setComplete();
+						if (player->getInventory()[i] == "None")
+						{
+							openIndex = i;
+							break;
+						}
+					}
+					if (openIndex == -1)
+					{
+						std::cout << "And then, equally mysteriously, it disintegrates.\n";
 					}
 					else
 					{
-						std::cout << "It flies to the door, jams itself into the keyhole, and unlocks it somehow.\n";
-						int openIndex = -1;
-						for (int i = 0; i < 5; i++)
-						{
-							if (p->getInventory()[i] == "None")
-							{
-								openIndex = i;
-								break;
-							}
-						}
-						if (openIndex == -1)
-						{
-							std::cout << "And then, equally mysteriously, it disintegrates.\n";
-						}
-						else
-						{
-							std::cout << "Then it flies back to you and goes into your inventory.\n";
-							p->getInventory()[openIndex] = item;
-						}
+						std::cout << "Then it flies back to you and goes into your inventory.\n";
+						player->getInventory()[openIndex] = item;
 					}
 				}
-				break;
-			case 4:
-				if (r->isComplete()) go();
-				else std::cout << "Try as you might, you cannot open the door, for it is locked. You'll have to find a key.\n";
-				break;
-			case 5:
-				p->displayStatus();
-				break;
+			}
 		}
+		else if (input == 4)
+		{
+			if (r->isComplete()) go();
+			else std::cout << "Try as you might, you cannot open the door, for it is locked. You'll have to find a key.\n";
+		}
+		else if (input == 5) player->displayStatus();
 	}
 }
