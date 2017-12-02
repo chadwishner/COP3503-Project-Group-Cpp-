@@ -58,17 +58,18 @@ void GameEngine::go(){
 	}
 }
 
-void GameEngine::roomLoop()
-{
-	Room * r = rooms->front();
-	rooms->pop();
-	std::cout << r->getMessage();
+void GameEngine::roomLoop(){
+	Room * r = rooms -> front();
+	rooms -> pop();
+	
+	std::cout << r -> getMessage();
 	int input = 0;
+	
 	while (true){ // Does this work as a loop condition? Should it be something else?
-		int choices = r->getChoices->size();
+		int choices = r -> getChoices().size();
 		
 		for (int i = 0; i < choices; i++){
-			std::cout << i + 1 << ". " << r->getChoices()->at(i) << "\n";
+			std::cout << i + 1 << ". " << r -> getChoices().at(i) << "\n";
 		}
 		
 		std::cout << choices << ". Check your status\n";
