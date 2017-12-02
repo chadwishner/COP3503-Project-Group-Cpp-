@@ -25,7 +25,7 @@ int main(int argc, const char * argv[]) {
 	"Ask the professor a question.",
 	"Look for a way to unlock the door.",
 	"Try and sneak out."
-    }
+	};
     Monster m = Monster(5, 5, 11, 8, 10, 30, "DR. KAVALAN");
     Room * r = new Room(&c, &m, message, flavorText, choices);
     roomList->push(r);
@@ -39,7 +39,7 @@ int main(int argc, const char * argv[]) {
 	"", // Insert "battle" choice here.
 	"", // Insert "challenge" choice here.
 	"" // Insert "leave" choice here.
-    }
+	};
     m = Monster(0, 0, 0, 0, 0, 0, ""); // Insert, in this order, the HP, max HP, STR, DEF, STA, EXP yield upon death, name.
     r = new Room(&c, &m, message, flavorText, choices);
     roomList->push(r);
