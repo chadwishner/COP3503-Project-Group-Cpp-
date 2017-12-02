@@ -1,29 +1,32 @@
+//  game_engine.cpp
+//  COP3503 Project Group
+
+//  Copyright © 2017 Group 35. All rights reserved.
+
 #include "game_engine.hpp"
 #include "room.hpp"
 #include "player.hpp"
 #include "monster.hpp"
 #include "challenge.hpp"
 
-GameEngine::GameEngine(Player * p, std::queue<Room *> * r) : player(p), rooms(r)
-{}
+GameEngine::GameEngine(Player * p, std::queue<Room *> * r) : player(p), rooms(r){}
 
-void GameEngine::battle(Monster * m)
-{
+void GameEngine::battle(Monster * m){
 	std::cout << "A wild " << m->getName() << " attacks!\n\n";
-	int choice = 0;
-	while (m->getHP() > 0)
-	{
+	
+    int choice = 0;
+	
+    while (m->getHP() > 0){
 		std::cout << "What will you do?\n";
 		std::cout << "1. Attack\n";
 		std::cout << "2. Chug a Gatorade\n";
 		std::cout << "3. View your status\n";
 		std::cout << "4. Flee\n\n";
 		std::cin >> choice;
-		switch (choice)
-		{
+		switch (choice){
 			case 1:
-				int spoils = p->attack(m);
-				if (spoils != 0) p->gainExp(spoils);
+				int spoils = person -> attack(m);
+				if (spoils != 0) person -> gainExp(spoils);
 				break;
 			case 2:
 				bool hasDrink = false;

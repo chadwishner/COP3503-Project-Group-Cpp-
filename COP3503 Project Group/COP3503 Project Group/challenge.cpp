@@ -10,7 +10,6 @@
 #include <ctime>
 #include "challenge.hpp"
 
-//how do we deal with item, this is not correct
 challenge:: challenge(){
 	srand(time(NULL));
 	challengeType = rand() % 2 + 1;
@@ -122,7 +121,7 @@ void quizChallenge(){
 		cin >> response;
 		if (response != answers[number]){
 			number = rand() % 9 + 1;
-		}else{
+		} else{
 			cout<<"Congratulations! On with your education.";
 			proceed = true;
 		}

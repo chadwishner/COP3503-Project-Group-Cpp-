@@ -13,7 +13,6 @@
 		679336331FAF9D0A00DA1B5E /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 679336311FAF9D0A00DA1B5E /* player.cpp */; };
 		679336421FAF9E2200DA1B5E /* challenge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 679336401FAF9E2200DA1B5E /* challenge.cpp */; };
 		679336451FAF9E5300DA1B5E /* entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 679336431FAF9E5300DA1B5E /* entity.cpp */; };
-		679336481FAF9E5A00DA1B5E /* item.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 679336461FAF9E5A00DA1B5E /* item.cpp */; };
 		6793364B1FAF9E6100DA1B5E /* room.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 679336491FAF9E6100DA1B5E /* room.cpp */; };
 /* End PBXBuildFile section */
 
@@ -42,8 +41,6 @@
 		679336411FAF9E2200DA1B5E /* challenge.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = challenge.hpp; sourceTree = "<group>"; };
 		679336431FAF9E5300DA1B5E /* entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = entity.cpp; sourceTree = "<group>"; };
 		679336441FAF9E5300DA1B5E /* entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = entity.hpp; sourceTree = "<group>"; };
-		679336461FAF9E5A00DA1B5E /* item.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = item.cpp; sourceTree = "<group>"; };
-		679336471FAF9E5A00DA1B5E /* item.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = item.hpp; sourceTree = "<group>"; };
 		679336491FAF9E6100DA1B5E /* room.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = room.cpp; sourceTree = "<group>"; };
 		6793364A1FAF9E6100DA1B5E /* room.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = room.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,8 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				6793361A1FAF98A700DA1B5E /* main.cpp */,
-				679336461FAF9E5A00DA1B5E /* item.cpp */,
-				679336471FAF9E5A00DA1B5E /* item.hpp */,
 				679336491FAF9E6100DA1B5E /* room.cpp */,
 				6793364A1FAF9E6100DA1B5E /* room.hpp */,
 				53DE0EEC1FD221A300D5027A /* game_engine.cpp */,
@@ -155,7 +150,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				679336451FAF9E5300DA1B5E /* entity.cpp in Sources */,
-				679336481FAF9E5A00DA1B5E /* item.cpp in Sources */,
 				679336301FAF9CE400DA1B5E /* monster.cpp in Sources */,
 				6793361B1FAF98A700DA1B5E /* main.cpp in Sources */,
 				679336421FAF9E2200DA1B5E /* challenge.cpp in Sources */,
