@@ -1,8 +1,3 @@
-//  game_engine.hpp
-//  COP3503 Project Group
-
-//  Copyright © 2017 Group 35. All rights reserved.
-
 #ifndef game_engine_hpp
 #define game_engine_hpp
 
