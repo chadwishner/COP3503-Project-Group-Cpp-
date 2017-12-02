@@ -111,7 +111,7 @@ int main(int argc, const char * argv[]) {
     r = new Room(&c, &m, message, flavorText, choices);
     roomList -> push(r);
     
-    //Room 8 : Dungeon goes here
+//Room 8 : Dungeon
     
     c = challenge();
 
@@ -129,10 +129,10 @@ int main(int argc, const char * argv[]) {
     m = Monster(0, 0, 0, 0, 0, 0, "SEGFAULT");
 
     r = new Room(&c, &m, message, flavorText, choices);
-    roomList->push(r);
+    roomList -> push(r);
     
     GameEngine * g = new GameEngine(p, roomList);
-    g->go();
+    g -> go();
 
     delete p;
     delete[] roomList;
