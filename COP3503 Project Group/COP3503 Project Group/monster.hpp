@@ -1,8 +1,7 @@
-//
 //  monster.hpp
+
 //  COP3503 Project Group
 //  Copyright © 2017 Group 35. All rights reserved.
-//
 
 #ifndef monster_hpp
 #define monster_hpp
@@ -20,9 +19,9 @@ class Monster : public Entity{
 				int def;
 				int sta;
 				int exp;
-    std::string name;
+    			std::string name;
 
-public:		Monster(int h, int mh, int s, int d, int a, int e, std::string n);
+	public:		Monster(int h, int mh, int s, int d, int a, int e, std::string n);
 				std::string getType() override;
 				int die() override;
 };
