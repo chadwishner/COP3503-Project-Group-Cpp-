@@ -5,8 +5,6 @@
 
 #include "monster.hpp"
 
-//std::string monsters[6] = {"Gator Growl Flyerers","A Seminole", "The Peace Guy", "DM Venmo Requests", "Hurricane Irma", "Segfault"};
-
 Monster::Monster(int h, int mh, int s, int d, int a, int e, std::string n) : hp(h), maxhp(mh), str(s), def(d), sta(a), exp(e), name(n){}
 
 int Monster::die(){
@@ -15,16 +13,6 @@ int Monster::die(){
     return exp;
 }
 
-//what's this for
 std::string Monster::getType(){
     return "Monster";
 }
-
-/*
-void Monster::displayStatus()
-{
-    std::cout << "HP: " << hp << "/" << maxhp;
-    std::cout << "\n";
-}
-*/
-
