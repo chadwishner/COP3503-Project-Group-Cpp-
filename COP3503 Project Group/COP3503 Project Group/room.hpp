@@ -18,13 +18,13 @@
 class Room{
 private:
     challenge * ch;
-    Monster * m;
+    Monster * monster;
     bool complete; // If true, player can move on to next room
     std::string message; // Displayed when room is entered
     std::string flavorText; // Displayed when "look around" is chosen
     std::vector<std::string> choices; // Choices to be displayed
 public:
-    Room(challenge *c, std::string message, std::string flavorText, std::vector<std::string> choices);
+    Room(challenge *c, Monster *m, std::string message, std::string flavorText, std::vector<std::string> choices);
     std::string getMessage();
     std::string getFlavorText();
     std::vector<std::string> getChoices();
