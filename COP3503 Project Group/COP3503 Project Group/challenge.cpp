@@ -122,7 +122,7 @@ void challenge::quizChallenge(){
 		if (response != answers[number]){
 			number = rand() % 9 + 1;
 		} else{
-			cout<<"Congratulations! On with your education.";
+			cout<<"Congratulations! On with your education.\n";
 			proceed = true;
 		}
 	};
