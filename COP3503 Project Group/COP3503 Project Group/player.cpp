@@ -21,7 +21,7 @@ void Player::levelUp(){
 	maxhp += mhpboost;
 	
     std::cout << "Your maximum HP increased by " << mhpboost << "!\n";
-	hp = maxhp // Uncomment if we need to heal the player upon level-up.
+	hp = maxhp; // Uncomment if we need to heal the player upon level-up.
 	int strboost = (rand() % 3 + 1);
 	str += strboost;
 	

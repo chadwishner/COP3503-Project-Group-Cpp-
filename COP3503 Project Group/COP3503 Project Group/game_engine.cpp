@@ -105,7 +105,7 @@ void GameEngine::roomLoop(){
 				}
 				else
 				{
-					int openIndex == -1;
+					int openIndex = -1;
 					for (int i = 0; i < 5; i++)
 					{
 						if (player->getInv()[i] == "None")
