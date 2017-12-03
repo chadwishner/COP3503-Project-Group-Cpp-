@@ -40,7 +40,7 @@ int Entity::attack(Entity * e){
 	if (getType() == "Player"){
 		std::cout << "You attack " << e->getName() << "!\n";
 	} else{
-		std::cout << e->getName() << " attacks!\n";
+		std::cout << getName() << " attacks!\n";
 	}
 	
     int damage = str - e->getDef();
@@ -56,7 +56,7 @@ int Entity::attack(Entity * e){
 			damage = ceil(damage * 1.2);
 			std::cout << "A critical hit! ";
 		}
-		std::cout << e->getName() << " takes " << damage << " damage!\n";
+		std::cout << e->getName() << " takes " << damage << " damage!\n\n";
 		
         int spoils = e->takeDamage(damage);
 		return spoils;
