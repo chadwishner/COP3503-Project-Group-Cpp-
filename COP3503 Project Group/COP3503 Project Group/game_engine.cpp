@@ -13,7 +13,7 @@ GameEngine::GameEngine(Player * p, std::queue<Room *> * r) : player(p), rooms(r)
 
 void GameEngine::battle(Monster * m){
 	std::cout << "A wild " << m->getName() << " attacks!\n\n";
-	
+    std::cout << "Monster HP = " << m->getHP() <<"\n";
     int choice = 0;
 	
     while (m->getHP() > 0){
@@ -102,6 +102,7 @@ void GameEngine::roomLoop(){
 						std::cout << "Then it flies back to you and goes into your inventory.\n";
 						player -> getInv()[openIndex] = item;
 					}
+                    r->setComplete();
 				}
 				else
 				{
@@ -122,7 +123,7 @@ void GameEngine::roomLoop(){
 				}
 			}
 		} else if (input == 4){
-			if (rooms->empty() && r->getMonster()->getHP() == 0)
+			if (rooms->empty() && r->getMonster()->getHP() <= 0)
 			{
 				r->setComplete();
 				return;

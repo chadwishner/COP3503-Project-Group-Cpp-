@@ -36,7 +36,7 @@ challenge * Room::getChallenge(){
 }
 
 void Room::setComplete(){
-    this->complete = false;
+    this->complete = true;
 }
 
 bool Room::isComplete(){

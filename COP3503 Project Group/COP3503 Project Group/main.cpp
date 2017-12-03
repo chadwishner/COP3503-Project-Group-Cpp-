@@ -21,7 +21,7 @@ int main(int argc, const char * argv[]) {
 
 //  Room 1 : NPB 1001
     
-    challenge c = challenge();
+    challenge c1 = challenge();
    
     std::string message = "It is 7:25 AM, and you're wishing you could be anywhere but here. Your mind can do nothing but wander, try as you might to focus.\nYes - you're in NPB 1001.\n";
    
@@ -34,13 +34,13 @@ int main(int argc, const char * argv[]) {
 	"Try and sneak out."
     };
    
-    Monster m = Monster(5, 5, 11, 8, 10, 30, "DR. KAVALAN");
-    Room * r = new Room(&c, &m, message, flavorText, choices);
+    Monster m1 = Monster(5, 5, 11, 8, 10, 30, "DR. KAVALAN");
+    Room * r = new Room(&c1, &m1, message, flavorText, choices);
     roomList -> push(r);
     
 //  Room 2 : Bookstore
     
-    c = challenge(2, "key");
+    challenge c2 = challenge(2, "key");
     message = "After that experience, you decide to pay a visit the campus bookstore. Yes, the prices here are exorbitantly high, but at this point, you might be able to get more out of a textbook than a 7:25 lecture. Perhaps you will be able to find a clue here to help you debug your program.";
     flavorText = "You pick up the nearest copy of C++ Primer, Fifth Edition and begin to flip through the pages. This would be a convenient resource, if not for the fact that it's nearly 1000 pages long. Stack Overflow would be much more helpful here.";
     choices = {
@@ -49,8 +49,8 @@ int main(int argc, const char * argv[]) {
         "Talk to an employee.",
         "Leave the bookstore."
     };
-    m = Monster(8, 8, 13, 10, 15, 45, "overpriced textbook");
-    r = new Room(&c, &m, message, flavorText, choices);
+    Monster m2 = Monster(8, 8, 13, 10, 15, 45, "overpriced textbook");
+    r = new Room(&c2, &m2, message, flavorText, choices);
     roomList -> push(r);
     
 //  Room 3 : Stadium goes here
@@ -59,7 +59,7 @@ int main(int argc, const char * argv[]) {
     
 //  Room 4 : Chick fil a HUB
    
-    c = challenge(1, "key");
+    challenge c4 = challenge(1, "key");
     
     message = "Heed this warning young student. Many juniors-by-credits have attempted this quest and met their ultimate demise. Do you have the grit to engage in battle with such a terrifying opponent? As you enter this faintly familiar establishment, you must decide your course of action.";
     
@@ -71,13 +71,13 @@ int main(int argc, const char * argv[]) {
         "Dodge the cow, dash for the key.",
         "Make your way over to the exit, unlock the door, and continue your journey."
     };
-    m = Monster(0, 0, 0, 0, 0, 0, "Chick-Fil-A Cow");
-    r = new Room(&c, &m, message, flavorText, choices);
+    Monster m4 = Monster(0, 0, 0, 0, 0, 0, "Chick-Fil-A Cow");
+    r = new Room(&c4, &m4, message, flavorText, choices);
     roomList -> push(r);
     
 //Room 5 : Carleton
    
-    c = challenge(2, "key");
+    challenge c5 = challenge(2, "key");
     message = "It is 8:00 PM, the day you've waiting for, the day you've dreaded: Exam Day.\nTheres a wisper in your ear \"you will fail\" it tells you.\nNo - You will succeed.\n";
     flavorText = "Stress builds, you question yourself, \"Did I study enough\". Did you?\n"; // Insert room-entry message here.
     
@@ -87,8 +87,8 @@ int main(int argc, const char * argv[]) {
         "Answer the final question", // Insert "challenge" choice here.
         "Take the L and leave" // Insert "leave" choice here.
     };
-    m = Monster(10, 10, 15, 12, 15, 20, "The Proctor"); // Insert, in this order, the HP, max HP, STR, DEF, STA, EXP yield upon death, name.
-    r = new Room(&c, &m, message, flavorText, choices);
+    Monster m5 = Monster(10, 10, 15, 12, 15, 20, "The Proctor"); // Insert, in this order, the HP, max HP, STR, DEF, STA, EXP yield upon death, name.
+    r = new Room(&c5, &m5, message, flavorText, choices);
     roomList -> push(r);
     
     
@@ -96,7 +96,7 @@ int main(int argc, const char * argv[]) {
     
     
 //Room 7 : Turlington
-    c = challenge(1, "key");
+    challenge c7 = challenge(1, "key");
     
     message = "As you walk along the path, you near your destination. You pass sign after sign telling you to turn back. As you get closer, the faint sounds of voices get louder and louder. Soon, you hear a sea of foot traffic. You can hear clubs recruiting and fundraising from a mile away. Your eyes widen as your realize where you are. You’re standing in the center of Turlington.";
     
@@ -108,13 +108,13 @@ int main(int argc, const char * argv[]) {
         "Dodge Dennis, dash for the glowing potato.",
         "Open the door to the Computer Science and Engineering Building."
     };
-    m = Monster(0, 0, 0, 0, 0, 0, "Dennis, The Peace Guy");
-    r = new Room(&c, &m, message, flavorText, choices);
+    Monster m7 = Monster(0, 0, 0, 0, 0, 0, "Dennis, The Peace Guy");
+    r = new Room(&c7, &m7, message, flavorText, choices);
     roomList -> push(r);
     
 //Room 8 : Dungeon
     
-    c = challenge();
+    challenge c8 = challenge();
 
     message = "It has been a long and tough journey, but you have finally made it to the dungeon. There is only one thing between you and your A now: the dreaded segmentation fault. It mocks you with its vague and unhelpful error message. What has caused it? What can fix it? The compiler refuses to say. Only you can put a stop to this error's wicked ways. The time has come to do battle.";
 
@@ -127,9 +127,9 @@ int main(int argc, const char * argv[]) {
 	"Onward!",
     };
 
-    m = Monster(0, 0, 0, 0, 0, 0, "SEGFAULT");
+    Monster m8 = Monster(5, 5, 0, 0, 0, 0, "SEGFAULT");
 
-    r = new Room(&c, &m, message, flavorText, choices);
+    r = new Room(&c8, &m8, message, flavorText, choices);
     roomList -> push(r);
     
     GameEngine * g = new GameEngine(p, roomList);
