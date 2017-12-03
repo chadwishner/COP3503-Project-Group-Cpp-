@@ -8,7 +8,7 @@
 #include <ctime>
 #include "player.hpp"
 
-Player::Player(std::string n) : hp(20), maxhp(20), str(10), def(10), sta(10), exp(0), level(1), maxexp(30), name(n){ // Placeholder default values. Requires playtesting.
+Player::Player(std::string n) : Entity(20, 20, 20, 10, 10, 0, n), hp(20), maxhp(20), str(10), def(10), sta(10), exp(0), level(1), maxexp(30), name(n){ // Placeholder default values. Requires playtesting.
 	inventory = {"None", "None", "None", "None", "None"};
 }
 
