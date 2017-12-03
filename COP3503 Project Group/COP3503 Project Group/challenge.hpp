@@ -13,11 +13,11 @@ using namespace std;
 class challenge {
 	private:		string item;
 					int challengeType;
-					void walkChallenge();
+					void walkChallenge(); // two different challenge functions
 					void quizChallenge();
 	public:			string go();
-					challenge();
-					challenge(int challengeType, string item);
+					challenge(); // an empty constructor if  challenge is not specified
+					challenge(int challengeType, string item);// constructor if key is needed to be put in room and and if challengetype needas to be declared
 };
 
 #endif /* challenge_hpp */
