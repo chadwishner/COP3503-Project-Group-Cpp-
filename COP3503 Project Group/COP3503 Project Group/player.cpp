@@ -35,7 +35,7 @@ void Player::levelUp(){
 	int staboost = (rand() % 3 + 1);
 	sta += staboost;
 	
-    std::cout << "Your stamina increased by " << staboost << "!\n";
+    std::cout << "Your stamina increased by " << staboost << "!\n\n";
 	exp = maxexp - exp;
 	maxexp += 10;
 	// Placeholder values. Playtest these!
@@ -71,9 +71,9 @@ void Player::displayStatus(){
 	std::cout << "HP: " << hp << "/" << maxhp;
 	std::cout << "\tEXP: " << exp << "/" << maxexp << "\n";
 	std::cout << "STR: " << str << "\tDEF: "<< def << "\tSTA: " << sta << "\n";
-	std::cout << "Inventory:\n";
+	std::cout << "\nInventory:\n";
 	for (std::string i : inventory){
 		std::cout << i << "\t";
 	}
-	std::cout << "\n";
+	std::cout << "\n\n";
 }

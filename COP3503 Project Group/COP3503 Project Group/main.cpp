@@ -49,7 +49,7 @@ int main(int argc, const char * argv[]) {
         "Talk to an employee.",
         "Leave the bookstore."
     };
-    Monster m2 = Monster(8, 8, 13, 10, 15, 45, "overpriced textbook");
+    Monster m2 = Monster(8, 8, 13, 10, 15, 45, "Overpriced Textbook");
     r = new Room(&c2, &m2, message, flavorText, choices);
     roomList -> push(r);
     

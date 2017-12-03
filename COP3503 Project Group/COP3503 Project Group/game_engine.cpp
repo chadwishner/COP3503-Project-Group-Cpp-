@@ -13,7 +13,6 @@ GameEngine::GameEngine(Player * p, std::queue<Room *> * r) : player(p), rooms(r)
 
 void GameEngine::battle(Monster * m){
 	std::cout << "A wild " << m->getName() << " attacks!\n\n";
-    std::cout << "Monster HP = " << m->getHP() <<"\n";
     int choice = 0;
 	
     while (m->getHP() > 0){
@@ -72,17 +71,18 @@ void GameEngine::roomLoop(){
 			std::cout << i + 1 << ". " << r -> getChoices().at(i) << "\n";
 		}
 		
-		std::cout << choices << ". Check your status\n";
+		std::cout << choices + 1 << ". Check your status\n";
 		std::cout << "\nWhat will you do? ";
 		std::cin >> input;
-		
+        std::cout << "\n";
+        
 		if (input == 1) std::cout << r->getFlavorText();
 		else if (input == 2) battle(r->getMonster());
 		else if (input == 3){
 			if (rooms->empty() == false && r->isComplete()) std::cout << "You already did this.\n";
 			else{
 				std::string item = r->getChallenge()->go();
-				std::cout << "You got a " << item << "!\n";
+				std::cout << "You got a " << item << "!\n\n";
 				if (item == "key" && rooms->empty() == false){
 					std::cout << "Before you can put it in your inventory, the key flies to the door, unlocks it, and disappears.";
 					r->setComplete();
