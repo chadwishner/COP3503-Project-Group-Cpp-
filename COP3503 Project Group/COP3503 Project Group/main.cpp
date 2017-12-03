@@ -24,7 +24,7 @@ int main(int argc, const char * argv[]) {
    
     std::string message = "It is 7:25 AM, and you're wishing you could be anywhere but here. Your mind can do nothing but wander, try as you might to focus.\nYes - you're in NPB 1001.\n";
    
-    std::string flavorText = "Since your mind is already wandering, this is not difficult to do. The ten other people in the room are all buried in their laptop screens, checking Reddit, Canvas, or what have you. You feel like nobody would notice if you left.\n";
+    std::string flavorText = "Since your mind is already wandering, this is not difficult to do. The ten other people in the room are all buried in their laptop screens, checking Reddit, Canvas, or what have you in desperate attempts to stay awake for the 25th hour in a row. As entertaining a challenge as that project was, it took a toll on the students. You feel like nobody would notice if you left.\n";
   
     std::vector<std::string> choices = {
 	"See what everyone else is up to.",
@@ -133,6 +133,10 @@ int main(int argc, const char * argv[]) {
     
     GameEngine * g = new GameEngine(p, roomList);
     g -> go();
+
+    std::cout << "You've done it, " << p->getName() << ". You have defeated the last thing standing between your assignment and a no-output g++ -Wall command. And just in time, too - the assignment is due in five minutes. You take a moment to bask in the satisfaction of an assured A on both the assignment and the class.\n";
+    std::cout << "As you click the \"Submit\" button on Canvas, something nags at you. You can't quite put your finger on it, but right as the submission deadline rolls by, it dawns on you.\n\n";
+    std::cout << "You forgot to test it.\n";
 
     delete p;
     delete[] roomList;
