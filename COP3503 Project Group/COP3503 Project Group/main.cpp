@@ -5,19 +5,20 @@
 
 #include <iostream>
 #include "game_engine.hpp"
-#include "player.hpp"
 
 int main(int argc, const char * argv[]) {
    
-    std::cout << "Welcome to a mystical adventure through COP 3502. Your programming assignment has a nasty bug in it, and it is up to you to reach the dungeon and fix it before the submission deadline. If you fail this assignment, you can kiss your grade goodbye. There will be many perils on your quest. Many will obstruct your path to an A.\n\n";
+//  Opening scene
+    
+    std::cout << "Welcome to a mystical adventure through COP 3503. Your programming assignment has a nasty bug in it, and it is up to you to reach the dungeon and fix it before the submission deadline. If you fail this assignment, you can kiss your grade goodbye. There will be many perils on your quest. Many will obstruct your path to an A.\n\n";
   
     std::cout << "O terminal soldier, what is your name?\n";
    
     std::string name = "";
     std::cin >> name;
    
-    Player * p = new Player(name);
-    std::queue<Room *> * roomList = new std::queue<Room *>();
+    Player * p = new Player(name); // Player object to be passed to GameEngine
+    std::queue<Room *> * roomList = new std::queue<Room *>(); // Stores Room objects
 
 //  Room 1 : NPB 1001
     
@@ -28,10 +29,10 @@ int main(int argc, const char * argv[]) {
     std::string flavorText = "Since your mind is already wandering, this is not difficult to do. The ten other people in the room are all buried in their laptop screens, checking Reddit, Canvas, or what have you in desperate attempts to stay awake for the 25th hour in a row. As entertaining a challenge as that project was, it took a toll on the students. You feel like nobody would notice if you left.\n";
   
     std::vector<std::string> choices = {
-    "See what everyone else is up to.", //look around
-	"Ask the professor a question.", // battle
-	"Look for a way to unlock the door.", // challenge
-	"Try and sneak out." // leave the area
+    "See what everyone else is up to.", // Look around
+	"Ask the professor a question.", // Battle
+	"Look for a way to unlock the door.", // Challenge
+	"Try and sneak out." // Leave the area (cannot leave without completing challenge)
     };
    
     Monster m1 = Monster(5, 5, 11, 8, 10, 30, "DR. KAVALAN");
@@ -40,16 +41,16 @@ int main(int argc, const char * argv[]) {
     
 //  Room 2 : Bookstore
     
-    challenge c2 = challenge(2, "key");
+    challenge c2 = challenge(1, "key");
     message = "After that experience, you decide to pay a visit the campus bookstore. Yes, the prices here are exorbitantly high, but at this point, you might be able to get more out of a textbook than a 7:25 lecture. Perhaps you will be able to find a clue here to help you debug your program.\n";
     flavorText = "You pick up the nearest copy of C++ Primer, Fifth Edition and begin to flip through the pages. This would be a convenient resource, if not for the fact that it's nearly 1000 pages long. Stack Overflow would be much more helpful here.\n";
     choices = {
         "Open up a C++ textbook.",
-        "Wander the shelves.",
-        "Talk to an employee.",
+        "Talk to someone at the counter.",
+        "Look for a reference book.",
         "Leave the bookstore."
     };
-    Monster m2 = Monster(8, 8, 13, 10, 15, 45, "Overpriced Textbook");
+    Monster m2 = Monster(8, 8, 13, 10, 15, 45, "Bookstore Employee");
     r = new Room(&c2, &m2, message, flavorText, choices);
     roomList -> push(r);
     
@@ -86,7 +87,7 @@ int main(int argc, const char * argv[]) {
     r = new Room(&c4, &m4, message, flavorText, choices);
     roomList -> push(r);
     
-//Room 5 : Carleton
+//  Room 5 : Carleton
    
     challenge c5 = challenge(2, "key");
     message = "It is 8:00 PM, the day you've waiting for, the day you've dreaded: Exam Day.\nTheres a wisper in your ear \"you will fail\" it tells you.\nNo - You will succeed.\n";
@@ -102,7 +103,7 @@ int main(int argc, const char * argv[]) {
     r = new Room(&c5, &m5, message, flavorText, choices);
     roomList -> push(r);
     
-//Room 6 : Broward Dining goes here
+//  Room 6 : Broward Dining goes here
     
     challenge c6 = challenge();
     message = "Your parents insisted it would be too hard to cook in a dorm room and the Chimichurri Steak at preview seemed really promising. Broward Dining Hall is your next adventure, filled with broken promises, half-cooked chicken and six-legged Iphone-sized cockro...well you will encounter those later\n";
@@ -117,7 +118,7 @@ int main(int argc, const char * argv[]) {
     r = new Room(&c6, &m6, message, flavorText, choices);
     roomList -> push(r);
 
-//Room 7 : Turlington
+//  Room 7 : Turlington
     
     challenge c7 = challenge(1, "Gatorade");
     
@@ -135,7 +136,7 @@ int main(int argc, const char * argv[]) {
     r = new Room(&c7, &m7, message, flavorText, choices);
     roomList -> push(r);
     
-//Room 8 : Dungeon
+//  Room 8 : Dungeon
     
     challenge c8 = challenge();
 
@@ -156,8 +157,10 @@ int main(int argc, const char * argv[]) {
     roomList -> push(r);
     
     GameEngine * g = new GameEngine(p, roomList);
-    g -> go();
+    g -> go(); // Handles progression through the game (see "game_engine.cpp")
 
+//  Completing the game
+    
     std::cout << "You've done it, " << p->getName() << ". You have defeated the last thing standing between your assignment and a no-output g++ -Wall command. And just in time, too - the assignment is due in five minutes. You take a moment to bask in the satisfaction of an assured A on both the assignment and the class.\n";
     std::cout << "As you click the \"Submit\" button on Canvas, something nags at you. You can't quite put your finger on it, but right as the submission deadline rolls by, it dawns on you.\n\n";
     std::cout << "You forgot to test it.\n";

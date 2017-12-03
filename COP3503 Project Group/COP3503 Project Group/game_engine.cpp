@@ -22,6 +22,16 @@ void GameEngine::battle(Monster * m){
 		std::cout << "3. View your status\n";
 		std::cout << "4. Flee\n\n";
 		std::cin >> choice;
+        
+        // Input validation (ensuring that value is an integer)
+        
+        while(std::cin.fail()){
+            std::cout<<"Invalid entry, try again.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+            std::cout << "\nWhat will you do? ";
+            std::cin >> choice;
+        }
 		if (choice == 1){
 			int spoils = player -> attack(m);
 			if (spoils != 0) player -> gainExp(spoils);
@@ -51,6 +61,8 @@ void GameEngine::battle(Monster * m){
 	}
 }
 
+// We initially tried to combine go() and roomLoop() into one function, but that led to some complications, so we split it into two.
+
 void GameEngine::go(){
 	if (rooms -> empty() == false){
 		roomLoop();
@@ -58,13 +70,13 @@ void GameEngine::go(){
 }
 
 void GameEngine::roomLoop(){
-	Room * r = rooms -> front();
+	Room * r = rooms -> front(); // Because apparently pop() can't be bothered to just RETURN THE DANG VALUE
 	rooms -> pop();
 	
 	std::cout << r -> getMessage();
 	int input = 0;
 	
-	while (true){ // Does this work as a loop condition? Should it be something else?
+	while (true){
 		int choices = r -> getChoices().size();
 		
 		for (int i = 0; i < choices; i++){
@@ -74,6 +86,17 @@ void GameEngine::roomLoop(){
 		std::cout << choices + 1 << ". Check your status\n";
 		std::cout << "\nWhat will you do? ";
 		std::cin >> input;
+        
+        // Input validation (ensuring that value is an integer)
+        
+        while(std::cin.fail()){
+            std::cout<<"Invalid entry, try again.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+            std::cout << "\nWhat will you do? ";
+            std::cin >> input;
+        }
+        
         std::cout << "\n";
         
 		if (input == 1) std::cout << r->getFlavorText();
@@ -83,6 +106,7 @@ void GameEngine::roomLoop(){
             }
             else battle(r->getMonster());
         }
+		// The final room merits some special treatment, since its win condition is beating the monster, not completing the challenge, so there are several exceptions for it throughout the input processing code.
 		else if (input == 3){
 			if (rooms->empty() == false && r->isComplete()) std::cout << "You already did this.\n\n";
 			else{

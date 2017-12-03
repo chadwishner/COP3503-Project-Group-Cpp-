@@ -63,12 +63,20 @@ void challenge::walkChallenge(){
 		itemYcor = -itemYcor;
 	}
 	int playerChoice = 0;
-	while (itemXcor != playerXcor && itemYcor != playerYcor){
+	while (itemXcor != playerXcor || itemYcor != playerYcor){
 		int distance = sqrt(pow(itemXcor-playerXcor, 2) + pow(itemYcor-playerYcor, 2));
 		std::cout << "You are " << distance << " units away from the item\n"; //prints distance from item so player can move accordingly.
 		do {
 			std::cout << "Please select which direction you would like to move:\n1. Left\n2. Right\n3. Forward\n4. Backwards\n";
 			std::cin >> playerChoice;
+            
+            while(std::cin.fail()){
+                std::cout<<"Invalid entry, try again.\n";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                std::cout << "Please select which direction you would like to move:\n1. Left\n2. Right\n3. Forward\n4. Backwards\n";
+                std::cin >> playerChoice;
+            }
 			
 			if (playerChoice == 1){
 				playerXcor--;
