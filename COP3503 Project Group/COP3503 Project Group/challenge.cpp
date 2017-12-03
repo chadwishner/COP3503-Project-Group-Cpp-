@@ -66,7 +66,8 @@ void challenge::walkChallenge(){
 	while (itemXcor != playerXcor || itemYcor != playerYcor){
 		int distance = sqrt(pow(itemXcor-playerXcor, 2) + pow(itemYcor-playerYcor, 2));
 		std::cout << "You are " << distance << " units away from the item\n"; //prints distance from item so player can move accordingly.
-		do {
+        do {
+            playerChoice = 0;
 			std::cout << "Please select which direction you would like to move:\n1. Left\n2. Right\n3. Forward\n4. Backwards\n";
 			std::cin >> playerChoice;
             
