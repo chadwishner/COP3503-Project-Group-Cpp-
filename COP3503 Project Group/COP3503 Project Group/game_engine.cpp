@@ -22,6 +22,16 @@ void GameEngine::battle(Monster * m){
 		std::cout << "3. View your status\n";
 		std::cout << "4. Flee\n\n";
 		std::cin >> choice;
+        
+        // Input validation (ensuring that value is an integer)
+        
+        while(std::cin.fail()){
+            std::cout<<"Invalid entry, try again.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+            std::cout << "\nWhat will you do? ";
+            std::cin >> choice;
+        }
 		if (choice == 1){
 			int spoils = player -> attack(m);
 			if (spoils != 0) player -> gainExp(spoils);
@@ -76,6 +86,17 @@ void GameEngine::roomLoop(){
 		std::cout << choices + 1 << ". Check your status\n";
 		std::cout << "\nWhat will you do? ";
 		std::cin >> input;
+        
+        // Input validation (ensuring that value is an integer)
+        
+        while(std::cin.fail()){
+            std::cout<<"Invalid entry, try again.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+            std::cout << "\nWhat will you do? ";
+            std::cin >> input;
+        }
+        
         std::cout << "\n";
         
 		if (input == 1) std::cout << r->getFlavorText();
