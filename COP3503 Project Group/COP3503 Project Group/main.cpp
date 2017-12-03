@@ -41,8 +41,8 @@ int main(int argc, const char * argv[]) {
 //  Room 2 : Bookstore
     
     challenge c2 = challenge(2, "key");
-    message = "After that experience, you decide to pay a visit the campus bookstore. Yes, the prices here are exorbitantly high, but at this point, you might be able to get more out of a textbook than a 7:25 lecture. Perhaps you will be able to find a clue here to help you debug your program.";
-    flavorText = "You pick up the nearest copy of C++ Primer, Fifth Edition and begin to flip through the pages. This would be a convenient resource, if not for the fact that it's nearly 1000 pages long. Stack Overflow would be much more helpful here.";
+    message = "After that experience, you decide to pay a visit the campus bookstore. Yes, the prices here are exorbitantly high, but at this point, you might be able to get more out of a textbook than a 7:25 lecture. Perhaps you will be able to find a clue here to help you debug your program.\n";
+    flavorText = "You pick up the nearest copy of C++ Primer, Fifth Edition and begin to flip through the pages. This would be a convenient resource, if not for the fact that it's nearly 1000 pages long. Stack Overflow would be much more helpful here.\n";
     choices = {
         "Open up a C++ textbook.",
         "Wander the shelves.",
@@ -59,11 +59,11 @@ int main(int argc, const char * argv[]) {
     
 //  Room 4 : Chick fil a HUB
    
-    challenge c4 = challenge(1, "key");
+    challenge c4 = challenge(1, "Gatorade");
     
-    message = "Heed this warning young student. Many juniors-by-credits have attempted this quest and met their ultimate demise. Do you have the grit to engage in battle with such a terrifying opponent? As you enter this faintly familiar establishment, you must decide your course of action.";
+    message = "Heed this warning young student. Many juniors-by-credits have attempted this quest and met their ultimate demise. Do you have the grit to engage in battle with such a terrifying opponent? As you enter this faintly familiar establishment, you must decide your course of action.\n";
     
-    flavorText = "You can hear faint 2015 top ten hits in the distance. The aroma of deep fried potatoes and chicken fill your nostrils. You hear “cha-ching” as flex bucks vanish into the meal plan abyss. The doors lock all around you. Where ever could you be? That’s right. Broward Chick-Fil-A. As the chills creep up your spine, you feel a being staring from behind. As you turn around slowly, you see it. The Chick-Fil-A cow. He bellows “EAT MORE CHICKEN” as he charges you in attack mode. As he approaches, you spot a deep fried key shimmering at the cash register. Maybe, just maybe, you could evade the cow, grab it, and make your escape.";
+    flavorText = "You can hear faint 2015 top ten hits in the distance. The aroma of deep fried potatoes and chicken fill your nostrils. You hear “cha-ching” as flex bucks vanish into the meal plan abyss. The doors lock all around you. Where ever could you be? That’s right. Broward Chick-Fil-A. As the chills creep up your spine, you feel a being staring from behind. As you turn around slowly, you see it. The Chick-Fil-A cow. He bellows “EAT MORE CHICKEN” as he charges you in attack mode. As he approaches, you spot a deep fried key shimmering at the cash register. Maybe, just maybe, you could evade the cow, grab it, and make your escape.\n";
     
     choices = {
         "Look around.",
@@ -96,11 +96,11 @@ int main(int argc, const char * argv[]) {
     
     
 //Room 7 : Turlington
-    challenge c7 = challenge(1, "key");
+    challenge c7 = challenge(1, "Gatorade");
     
-    message = "As you walk along the path, you near your destination. You pass sign after sign telling you to turn back. As you get closer, the faint sounds of voices get louder and louder. Soon, you hear a sea of foot traffic. You can hear clubs recruiting and fundraising from a mile away. Your eyes widen as your realize where you are. You’re standing in the center of Turlington.";
+    message = "As you walk along the path, you near your destination. You pass sign after sign telling you to turn back. As you get closer, the faint sounds of voices get louder and louder. Soon, you hear a sea of foot traffic. You can hear clubs recruiting and fundraising from a mile away. Your eyes widen as your realize where you are. You’re standing in the center of Turlington.\n";
     
-    flavorText = "As you scan the landscape, you spot a few things through the crowd. You see a science library, a glowing potato looking monstrosity, and a gator growl fundraiser verbally assaulting other students. You stop to notice a muscular-legged silhouette. You see a hand shoot up in the shape of a peace sign. There’s no mistake, it’s Dennis, The Peace Guy. His insanely toned quads propel him towards you.";
+    flavorText = "As you scan the landscape, you spot a few things through the crowd. You see a science library, a glowing potato looking monstrosity, and a gator growl fundraiser verbally assaulting other students. You stop to notice a muscular-legged silhouette. You see a hand shoot up in the shape of a peace sign. There’s no mistake, it’s Dennis, The Peace Guy. His insanely toned quads propel him towards you.\n";
     
     choices = {
         "Look around.",
@@ -116,9 +116,9 @@ int main(int argc, const char * argv[]) {
     
     challenge c8 = challenge();
 
-    message = "It has been a long and tough journey, but you have finally made it to the dungeon. There is only one thing between you and your A now: the dreaded segmentation fault. It mocks you with its vague and unhelpful error message. What has caused it? What can fix it? The compiler refuses to say. Only you can put a stop to this error's wicked ways. The time has come to do battle.";
+    message = "It has been a long and tough journey, but you have finally made it to the dungeon. There is only one thing between you and your A now: the dreaded segmentation fault. It mocks you with its vague and unhelpful error message. What has caused it? What can fix it? The compiler refuses to say. Only you can put a stop to this error's wicked ways. The time has come to do battle.\n";
 
-    flavorText = "There is not a soul in sight. The stage is set for your final showdown. No obstructions, no distractions - the time is now.";
+    flavorText = "There is not a soul in sight. The stage is set for your final showdown. No obstructions, no distractions - the time is now.\n";
 
     choices = {
 	"Survey the territory.",
