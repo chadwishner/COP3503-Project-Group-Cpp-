@@ -79,14 +79,14 @@ void GameEngine::roomLoop(){
 		if (input == 1) std::cout << r->getFlavorText();
 		else if (input == 2) battle(r->getMonster());
 		else if (input == 3){
-			if (r->isComplete()) std::cout << "You already did this.\n";
+			if (rooms->empty() == false && r->isComplete()) std::cout << "You already did this.\n";
 			else{
 				std::string item = r->getChallenge()->go();
 				std::cout << "You got a " << item << "!\n";
-				if (item == "key"){
+				if (item == "key" && rooms->empty() == false){
 					std::cout << "Before you can put it in your inventory, the key flies to the door, unlocks it, and disappears.";
 					r->setComplete();
-				} else{
+				} else if (item != "key" && rooms->empty() == false){
 					std::cout << "It flies to the door, jams itself into the keyhole, and unlocks it somehow.\n";
 					int openIndex = -1;
 					for (int i = 0; i < 5; i++){
@@ -103,9 +103,35 @@ void GameEngine::roomLoop(){
 						player -> getInv()[openIndex] = item;
 					}
 				}
+				else
+				{
+					int openIndex == -1;
+					for (int i = 0; i < 5; i++)
+					{
+						if (player->getInv()[i] == "None")
+						{
+							openIndex = i;
+							break;
+						}
+					}
+					if (openIndex != -1)
+					{
+						std::cout << "You put it in your inventory.\n";
+						player->getInv()[openIndex] = item;
+					}
+				}
 			}
 		} else if (input == 4){
-			if (r->isComplete()) go();
+			if (rooms->empty() && r->getMonster()->getHP() == 0)
+			{
+				r->setComplete();
+				return;
+			}
+			if (r->isComplete())
+			{
+				go();
+				return;
+			}
 			else std::cout << "Try as you might, you cannot open the door, for it is locked. You'll have to find a key.\n";
 		} else if (input == 5) player->displayStatus();
 	}
