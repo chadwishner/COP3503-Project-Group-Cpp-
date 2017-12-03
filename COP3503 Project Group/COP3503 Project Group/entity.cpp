@@ -32,7 +32,7 @@ std::string Entity::getName(){
 int Entity::takeDamage(int d){
 	hp -= d;
 	if (hp <= 0){
-		return die();
+		return die(); // This starts a long daisy-chain of return statements before the yielded EXP finally makes its way to the player object.
 	} else return 0;
 }
 
@@ -50,6 +50,7 @@ int Entity::attack(Entity * e){
     srand(time(NULL));
 	int chance = rand() % 100 + 1;
 	
+    // Sometimes the attack should miss or crit to make things interesting.
     if (chance > 90) std::cout << "The attack missed!\n";
 	else {
 		if (chance < 10) {
@@ -59,7 +60,7 @@ int Entity::attack(Entity * e){
 		std::cout << e->getName() << " takes " << damage << " damage!\n\n";
 		
         int spoils = e->takeDamage(damage);
-		return spoils;
+		return spoils; // Here's the continuation of that daisy-chain.
 	}
 	return 0;
 }

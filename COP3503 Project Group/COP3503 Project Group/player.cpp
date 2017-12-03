@@ -8,7 +8,7 @@
 #include <ctime>
 #include "player.hpp"
 
-Player::Player(std::string n) : Entity(20, 20, 20, 10, 10, 0, n), hp(20), maxhp(20), str(10), def(10), sta(10), exp(0), level(1), maxexp(30), name(n){ // Placeholder default values. Requires playtesting.
+Player::Player(std::string n) : Entity(20, 20, 20, 10, 10, 0, n), hp(20), maxhp(20), str(10), def(10), sta(10), exp(0), level(1), maxexp(30), name(n){
     for (int i = 0; i < 5; i++) {
         inventory[i] = "None";
     }
@@ -23,7 +23,7 @@ void Player::levelUp(){
 	maxhp += mhpboost;
 	
     std::cout << "Your maximum HP increased by " << mhpboost << "!\n";
-	hp = maxhp; // Uncomment if we need to heal the player upon level-up.
+	hp = maxhp;
 	int strboost = (rand() % 3 + 1);
 	str += strboost;
 	
@@ -38,7 +38,6 @@ void Player::levelUp(){
     std::cout << "Your stamina increased by " << staboost << "!\n\n";
 	exp = maxexp - exp;
 	maxexp += 10;
-	// Placeholder values. Playtest these!
 }
 
 int Player::die(){
@@ -50,7 +49,7 @@ int Player::die(){
 }
 
 std::string Player::getType(){
-	return "Player";
+	return "Player"; // Necessary for certain Entity functions.
 }
 
 void Player::heal(int h){
