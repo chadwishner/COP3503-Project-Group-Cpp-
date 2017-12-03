@@ -50,8 +50,8 @@ void challenge::walkChallenge(){
 	int xPosOrNeg = rand() % 2 + 1;
 	int yPosOrNeg = rand() % 2 + 1;
 	
-	int itemXcor = 5 + (rand() * (int)(10 - 5) / 10);
-	int itemYcor = 5 + (rand() * (int)(10 - 5) / 10);
+	int itemXcor = rand() % 10 + 5;
+	int itemYcor = rand() % 10 + 5;
 	
 	int playerXcor = 0;
 	int playerYcor = 0;
