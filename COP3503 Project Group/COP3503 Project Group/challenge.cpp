@@ -66,7 +66,8 @@ void challenge::walkChallenge(){
 	while (itemXcor != playerXcor || itemYcor != playerYcor){
 		int distance = sqrt(pow(itemXcor-playerXcor, 2) + pow(itemYcor-playerYcor, 2));
 		std::cout << "You are " << distance << " units away from the item\n"; //prints distance from item so player can move accordingly.
-		do {
+        do {
+            playerChoice = 0;
 			std::cout << "Please select which direction you would like to move:\n1. Left\n2. Right\n3. Forward\n4. Backwards\n";
 			std::cin >> playerChoice;
             
@@ -120,6 +121,15 @@ void challenge::quizChallenge(){
 	
 	cout << "Welcome to the Quiz Challenge, adventurous student. In order to proceed, you must answer the question correctly. Every time you choose a wrong answer. You will be forced to answer a different qurestion. Do you accept?\n(Enter your answers as numbers)\n\t1.COME AT ME\n\t2.No, I don't. I'm a snowflake.\n"; //
 	cin >> response;
+    
+    while(std::cin.fail()){
+        std::cout<<"Invalid entry, try again.\n";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+        std::cout << "Do you accept?\n(Enter your answers as numbers)\n\t1.COME AT ME\n\t2.No, I don't. I'm a snowflake.\n";
+        std::cin >> response;
+    }
+    
 	if(response == 2){
 		cout<<"Too bad. Office hours were cancelled; you have no choice but to face your destiny solo.\n";
 	}
@@ -127,6 +137,14 @@ void challenge::quizChallenge(){
 		response = 0;
 		cout << questions[number];
 		cin >> response;
+        
+        while(std::cin.fail()){
+            std::cout<<"Invalid entry, try again.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+            std::cin >> response;
+        }
+        
 		if (response != answers[number]){ //checks answer with right answer choice
 			number = rand() % 9 + 1; // if not correct, randomizes another question
 		} else{
