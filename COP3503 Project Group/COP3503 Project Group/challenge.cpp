@@ -11,8 +11,8 @@
 #include "challenge.hpp"
 
 challenge::challenge(){
-	srand(time(NULL));
-	challengeType = rand() % 2 + 1;
+	srand(time(NULL)); // random pre-definition
+	challengeType = rand() % 2 + 1; // randomizes item if an empty constructor is called
 	
 	int itemNum = rand() % 2 + 1;
 	if (itemNum == 2){
@@ -22,14 +22,14 @@ challenge::challenge(){
 	}
 }
 
-challenge:: challenge(int challengeType, string item){
+challenge:: challenge(int challengeType, string item){ // challenge constructor
 	this -> challengeType = challengeType;
 	this -> item = item;
 }
 
 string challenge::go(){
 	
-	switch (challengeType) {
+	switch (challengeType) { // defines which challenge function to call
 		case 1:
 			walkChallenge();
 			break;
@@ -47,7 +47,7 @@ string challenge::go(){
 void challenge::walkChallenge(){
 	srand(time(NULL));
 	
-	int xPosOrNeg = rand() % 2 + 1;
+	int xPosOrNeg = rand() % 2 + 1; // randomizes a position to put the item in a 2 dimensional surface
 	int yPosOrNeg = rand() % 2 + 1;
 	
 	int itemXcor = rand() % 10 + 5;
@@ -63,12 +63,20 @@ void challenge::walkChallenge(){
 		itemYcor = -itemYcor;
 	}
 	int playerChoice = 0;
-	while (itemXcor != playerXcor && itemYcor != playerYcor){
+	while (itemXcor != playerXcor || itemYcor != playerYcor){
 		int distance = sqrt(pow(itemXcor-playerXcor, 2) + pow(itemYcor-playerYcor, 2));
-		std::cout << "You are " << distance << " units away from the item\n";
+		std::cout << "You are " << distance << " units away from the item\n"; //prints distance from item so player can move accordingly.
 		do {
 			std::cout << "Please select which direction you would like to move:\n1. Left\n2. Right\n3. Forward\n4. Backwards\n";
 			std::cin >> playerChoice;
+            
+            while(std::cin.fail()){
+                std::cout<<"Invalid entry, try again.\n";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                std::cout << "Please select which direction you would like to move:\n1. Left\n2. Right\n3. Forward\n4. Backwards\n";
+                std::cin >> playerChoice;
+            }
 			
 			if (playerChoice == 1){
 				playerXcor--;
@@ -76,7 +84,7 @@ void challenge::walkChallenge(){
 				playerXcor++;
 			} else if (playerChoice == 3){
 				playerYcor++;
-			} else if (playerChoice == 4){
+			} else if (playerChoice == 4){  // moves player
 				playerYcor--;
 			} else {
 				cout << "That is not an acceptable choice, tsk tsk. Please choose 1,2,3, or 4\n";
@@ -97,7 +105,7 @@ void challenge::quizChallenge(){
 	int response;
 	string responseAccept;
 	
-	int number = rand() % 9 +1;
+	int number = rand() % 9 +1; // quiz challenge with 10 questions
 	string questions[] = {"What year was UF established?\n\t1.1905\n\t2.1968\n\t3.1853\n\t4.1492\n",
 		"Who is the president of UF?\n\t1.Eliahu Hanavid\n\t2.Kent Fuchs\n\t3.Korpus Kane\n\t4.Isaac Roth\n",
 		"What atlethics conference does the university belong to?\n\t1.NCAA\n\t2.PHP\n\t3.SEC\n\t4.MBAA\n",
@@ -108,9 +116,9 @@ void challenge::quizChallenge(){
 		"The all-time career passing yards leader in Florida history is:\n\t1.Chris Leak\n\t2.Shane Matthews\n\t3.Tim Tebow\n\t4.Rex Grossman\n",
 		"What was the earliest college founded at the university (in 1906)?\n\t1.College of Agricultural and Life Sciences\n\t2.College of Engineering\n\t3.College of Liberal Arts\n\t4.College of Medicine.\n",
 		"Who is the student union named after? \n\t1.Reitz Ritz\n\t2.P. Carter Reitz\n\t3.John Reitz III\n\t4.J. Wayne Reitz\n"};
-	int answers[10] = {3,2,3,2,1,3,2,1,1,4};
+	int answers[10] = {3,2,3,2,1,3,2,1,1,4}; // array with answer choices that coorelates to correct answer for array of strings question.
 	
-	cout << "Welcome to the Quiz Challenge, adventurous student. In order to proceed, you must answer the question correctly. Every time you choose a wrong answer, your grade will be deducted by 10 points. Do you accept?\n(Enter your answers as numbers)\n\t1.COME AT ME\n\t2.No, I don't. I'm a snowflake.\n";
+	cout << "Welcome to the Quiz Challenge, adventurous student. In order to proceed, you must answer the question correctly. Every time you choose a wrong answer. You will be forced to answer a different qurestion. Do you accept?\n(Enter your answers as numbers)\n\t1.COME AT ME\n\t2.No, I don't. I'm a snowflake.\n"; //
 	cin >> response;
 	if(response == 2){
 		cout<<"Too bad. Office hours were cancelled; you have no choice but to face your destiny solo.\n";
@@ -119,11 +127,11 @@ void challenge::quizChallenge(){
 		response = 0;
 		cout << questions[number];
 		cin >> response;
-		if (response != answers[number]){
-			number = rand() % 9 + 1;
+		if (response != answers[number]){ //checks answer with right answer choice
+			number = rand() % 9 + 1; // if not correct, randomizes another question
 		} else{
 			cout<<"Congratulations! On with your education.\n";
-			proceed = true;
+			proceed = true; //if correct changes value to get out of loop
 		}
 	};
 }
