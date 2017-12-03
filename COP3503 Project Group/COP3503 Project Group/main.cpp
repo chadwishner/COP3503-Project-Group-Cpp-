@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include "game_engine.hpp"
+#include "player.hpp"
 
 int main(int argc, const char * argv[]) {
    
@@ -139,7 +140,7 @@ int main(int argc, const char * argv[]) {
     std::cout << "You forgot to test it.\n";
 
     delete p;
-    delete[] roomList;
-    delete[] g;
+    delete roomList;
+    delete g;
     return 0;
 }

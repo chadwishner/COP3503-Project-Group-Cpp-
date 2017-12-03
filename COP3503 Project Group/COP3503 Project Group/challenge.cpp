@@ -10,7 +10,7 @@
 #include <ctime>
 #include "challenge.hpp"
 
-challenge:: challenge(){
+challenge::challenge(){
 	srand(time(NULL));
 	challengeType = rand() % 2 + 1;
 	
@@ -44,7 +44,7 @@ string challenge::go(){
 }
 
 
-void challenge:: walkChallenge(){
+void challenge::walkChallenge(){
 	srand(time(NULL));
 	
 	int xPosOrNeg = rand() % 2 + 1;
@@ -89,7 +89,7 @@ void challenge:: walkChallenge(){
 }
 
 
-void quizChallenge(){
+void challenge::quizChallenge(){
 	
 	srand(time(NULL));
 	

@@ -24,6 +24,7 @@ class Monster : public Entity{
     public:		Monster(int h, int mh, int s, int d, int a, int e, std::string n);
 				std::string getType() override;
 				int die() override;
+                //~Monster();
 };
 
 #endif /* monster_hpp */

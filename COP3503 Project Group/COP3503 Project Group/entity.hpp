@@ -20,8 +20,8 @@ class Entity
                     int sta;
                     int exp;
                     std::string name;
-                    virtual int die();
-                    virtual std::string getType();
+                    virtual int die() = 0;
+                    virtual std::string getType() {return "Entity";};
 
 	public:         Entity(int h, int mh, int s, int d, int a, int e, std::string n);
                     virtual int getHP();
@@ -31,5 +31,6 @@ class Entity
                     virtual std::string getName();
                     virtual int takeDamage(int d);
                     virtual int attack(Entity * e);
+                    //virtual ~Entity();
 };
 #endif /* entity_hpp */
