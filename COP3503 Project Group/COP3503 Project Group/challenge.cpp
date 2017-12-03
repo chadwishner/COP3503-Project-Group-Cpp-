@@ -69,6 +69,14 @@ void challenge::walkChallenge(){
 		do {
 			std::cout << "Please select which direction you would like to move:\n1. Left\n2. Right\n3. Forward\n4. Backwards\n";
 			std::cin >> playerChoice;
+            
+            while(std::cin.fail()){
+                std::cout<<"Invalid entry, try again.\n";
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(),'\n');
+                std::cout << "Please select which direction you would like to move:\n1. Left\n2. Right\n3. Forward\n4. Backwards\n";
+                std::cin >> playerChoice;
+            }
 			
 			if (playerChoice == 1){
 				playerXcor--;
