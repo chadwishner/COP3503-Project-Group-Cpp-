@@ -28,10 +28,10 @@ int main(int argc, const char * argv[]) {
     std::string flavorText = "Since your mind is already wandering, this is not difficult to do. The ten other people in the room are all buried in their laptop screens, checking Reddit, Canvas, or what have you in desperate attempts to stay awake for the 25th hour in a row. As entertaining a challenge as that project was, it took a toll on the students. You feel like nobody would notice if you left.\n";
   
     std::vector<std::string> choices = {
-	"See what everyone else is up to.",
-	"Ask the professor a question.",
-	"Look for a way to unlock the door.",
-	"Try and sneak out."
+    "See what everyone else is up to.", //look around
+	"Ask the professor a question.", // battle
+	"Look for a way to unlock the door.", // challenge
+	"Try and sneak out." // leave the area
     };
    
     Monster m1 = Monster(5, 5, 11, 8, 10, 30, "DR. KAVALAN");
@@ -55,7 +55,18 @@ int main(int argc, const char * argv[]) {
     
 //  Room 3 : Stadium goes here
     
-
+    challenge c3 = challenge(2,"Gatorade");
+    message = "Filled with determination, you briskly walk into the stadium.Many have attempted to fullfill their preview pledge of running stadiums once a week, however, most have failed.\n";
+    flavorText = "You see student atheletes, fraternity brothers, and other ambitious freshman. Fear builds and you wonder if you will keep down the Chipotle you ate an hour before you came... You probably wont.\n";
+    choices = {
+        "Look around",
+        "Run a lap to find your running partner",
+        "Hide in the bathroom in attempt to escape a a workout. ",
+        "Leave the stadium in exhaustion"
+    };
+    Monster m3 = Monster(0, 0, 0, 0, 0, 0, "Seminole");
+    r = new Room(&c3, &m3, message, flavorText, choices);
+    roomList -> push(r);
     
 //  Room 4 : Chick fil a HUB
    
@@ -91,11 +102,23 @@ int main(int argc, const char * argv[]) {
     r = new Room(&c5, &m5, message, flavorText, choices);
     roomList -> push(r);
     
-    
 //Room 6 : Broward Dining goes here
     
-    
+    challenge c6 = challenge();
+    message = "Your parents insisted it would be too hard to cook in a dorm room and the Chimichurri Steak at preview seemed really promising. Broward Dining Hall is your next adventure, filled with broken promises, half-cooked chicken and six-legged Iphone-sized cockro...well you will encounter those later\n";
+    flavorText = "You nervously walk to where the preview staffers promised there would always be chicken or steak. To your dismay, all that is available to eat is a singular slice of ham on a stale piece of bread with a dab of mustard. You hang your head in shame and tell yourself you will never sign your health away again./n";
+    choices = {
+        "Go in search of edible food",
+        "Get a bowl of cereal.",
+        "Talk to Pat.",
+        "Go to Chipotle."
+    };
+    Monster m6 = Monster(0,0, 0,0, 0, 0, "Cockroach");
+    r = new Room(&c6, &m6, message, flavorText, choices);
+    roomList -> push(r);
+
 //Room 7 : Turlington
+    
     challenge c7 = challenge(1, "Gatorade");
     
     message = "As you walk along the path, you near your destination. You pass sign after sign telling you to turn back. As you get closer, the faint sounds of voices get louder and louder. Soon, you hear a sea of foot traffic. You can hear clubs recruiting and fundraising from a mile away. Your eyes widen as your realize where you are. You’re standing in the center of Turlington.\n";
