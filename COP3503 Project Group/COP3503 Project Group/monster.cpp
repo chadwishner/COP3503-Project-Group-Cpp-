@@ -16,5 +16,3 @@ int Monster::die(){
 std::string Monster::getType(){
     return "Monster";
 }
-
-
