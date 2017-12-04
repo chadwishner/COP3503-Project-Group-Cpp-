@@ -41,7 +41,7 @@ int main(int argc, const char * argv[]) {
     
 //  Room 2 : Bookstore
     
-    challenge c2 = challenge(1, "key");
+    challenge c2 = challenge(1, "Gatorade");
     message = "After that experience, you decide to pay a visit the campus bookstore. Yes, the prices here are exorbitantly high, but at this point, you might be able to get more out of a textbook than a 7:25 lecture. Perhaps you will be able to find a clue here to help you debug your program.\n";
     flavorText = "You pick up the nearest copy of C++ Primer, Fifth Edition and begin to flip through the pages. This would be a convenient resource, if not for the fact that it's nearly 1000 pages long. Stack Overflow would be much more helpful here.\n";
     choices = {
