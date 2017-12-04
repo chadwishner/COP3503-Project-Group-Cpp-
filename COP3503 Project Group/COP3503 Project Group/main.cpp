@@ -57,7 +57,7 @@ int main(int argc, const char * argv[]) {
 //  Room 3 : Stadium goes here
     
     challenge c3 = challenge(2,"Gatorade");
-    message = "Filled with determination, you briskly walk into the stadium.Many have attempted to fullfill their preview pledge of running stadiums once a week, however, most have failed.\n";
+    message = "Filled with determination, you briskly walk into the stadium. Many have attempted to fullfill their preview pledge of running stadiums once a week, however, most have failed.\n";
     flavorText = "You see student atheletes, fraternity brothers, and other ambitious freshman. Fear builds and you wonder if you will keep down the Chipotle you ate an hour before you came... You probably wont.\n";
     choices = {
         "Look around",
