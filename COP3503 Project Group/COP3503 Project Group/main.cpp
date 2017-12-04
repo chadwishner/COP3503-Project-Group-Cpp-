@@ -30,12 +30,12 @@ int main(int argc, const char * argv[]) {
   
     std::vector<std::string> choices = {
     "See what everyone else is up to.", // Look around
-	"Ask the professor a question.", // Battle
-	"Look for a way to unlock the door.", // Challenge
-	"Try and sneak out." // Leave the area (cannot leave without completing challenge)
+    "Ask the professor a question.", // Battle
+    "Look for a way to unlock the door.", // Challenge
+    "Try and sneak out." // Leave the area (cannot leave without completing challenge)
     };
    
-    Monster m1 = Monster(5, 5, 11, 8, 10, 30, 0, "DR. KAVALAN");
+    Monster m1 = Monster(5, 5, 11, 8, 10, 30, 0, 1, "DR. KAVALAN");
     Room * r = new Room(&c1, &m1, message, flavorText, choices);
     roomList -> push(r);
     
@@ -50,7 +50,7 @@ int main(int argc, const char * argv[]) {
         "Look for a reference book.",
         "Leave the bookstore."
     };
-    Monster m2 = Monster(9, 9, 15, 12, 13, 34, 0, "Bookstore Employee");
+    Monster m2 = Monster(10, 10, 15, 12, 13, 34, 0, 1, "Bookstore Employee");
     r = new Room(&c2, &m2, message, flavorText, choices);
     roomList -> push(r);
     
@@ -65,7 +65,7 @@ int main(int argc, const char * argv[]) {
         "Hide in the bathroom in attempt to escape a a workout. ",
         "Leave the stadium in exhaustion"
     };
-    Monster m3 = Monster(13, 13, 19, 16, 17, 38, 0, "Seminole");
+    Monster m3 = Monster(14, 14, 19, 16, 17, 38, 0, 1, "Seminole");
     r = new Room(&c3, &m3, message, flavorText, choices);
     roomList -> push(r);
     
@@ -83,7 +83,7 @@ int main(int argc, const char * argv[]) {
         "Dodge the cow, dash for the key.",
         "Make your way over to the exit, unlock the door, and continue your journey."
     };
-    Monster m4 = Monster(17, 17, 23, 20, 21, 42, 0, "Chick-Fil-A Cow");
+    Monster m4 = Monster(17, 17, 23, 18, 21, 42, 0, 1, "Chick-Fil-A Cow");
     r = new Room(&c4, &m4, message, flavorText, choices);
     roomList -> push(r);
     
@@ -99,7 +99,7 @@ int main(int argc, const char * argv[]) {
         "Answer the final question", // Insert "challenge" choice here.
         "Take the L and leave" // Insert "leave" choice here.
     };
-    Monster m5 = Monster(21, 21, 27, 24, 25, 46, 0, "The Proctor"); // Insert, in this order, the HP, max HP, STR, DEF, STA, EXP yield upon death, name.
+    Monster m5 = Monster(19, 19, 27, 21, 25, 46, 0, 1, "The Proctor"); // Insert, in this order, the HP, max HP, STR, DEF, STA, EXP yield upon death, name.
     r = new Room(&c5, &m5, message, flavorText, choices);
     roomList -> push(r);
     
@@ -114,7 +114,7 @@ int main(int argc, const char * argv[]) {
         "Talk to Pat.",
         "Go to Chipotle."
     };
-    Monster m6 = Monster(25, 25, 31, 28, 29, 50, 0, "Cockroach");
+    Monster m6 = Monster(22, 22, 28, 23, 29, 50, 0, 1, "Cockroach");
     r = new Room(&c6, &m6, message, flavorText, choices);
     roomList -> push(r);
 
@@ -132,7 +132,7 @@ int main(int argc, const char * argv[]) {
         "Dodge Dennis, dash for the glowing potato.",
         "Open the door to the Computer Science and Engineering Building."
     };
-    Monster m7 = Monster(29, 29, 35, 32, 33, 54, 0, "Dennis, The Peace Guy");
+    Monster m7 = Monster(24, 24, 30, 24, 33, 54, 0, 1, "Dennis, The Peace Guy");
     r = new Room(&c7, &m7, message, flavorText, choices);
     roomList -> push(r);
     
@@ -145,13 +145,13 @@ int main(int argc, const char * argv[]) {
     flavorText = "There is not a soul in sight. The stage is set for your final showdown. No obstructions, no distractions - the time is now.\n";
 
     choices = {
-	"Survey the territory.",
-	"Confront the almighty segfault.",
-	"Scrounge for a Gatorade.",
-	"Onward!",
+    "Survey the territory.",
+    "Confront the almighty segfault.",
+    "Scrounge for a Gatorade.",
+    "Onward!",
     };
 
-    Monster m8 = Monster(33, 33, 39, 36, 37, 58, 0, "SEGFAULT");
+    Monster m8 = Monster(27, 27, 35, 29, 37, 58, 0, 1, "SEGFAULT");
 
     r = new Room(&c8, &m8, message, flavorText, choices);
     roomList -> push(r);

@@ -7,7 +7,7 @@
 #include <cstdlib>
 #include <ctime>
 
-Entity::Entity(int h, int mh, int s, int d, int a, int e, int me, std::string n) : hp(h), maxhp(mh), str(s), def(d), sta(a), exp(e), maxexp(me), name(n){
+Entity::Entity(int h, int mh, int s, int d, int a, int e, int me, int level, std::string n) : hp(h), maxhp(mh), str(s), def(d), sta(a), exp(e), level(level), maxexp(me), name(n){
     for (int i = 0; i < 5; i++) {
         inventory[i] = "None";
     }
@@ -78,4 +78,35 @@ void Entity::displayStatus(){
         std::cout << i << "\t";
     }
     std::cout << "\n\n";
+}
+
+void Entity::levelUp(){
+    level++;
+    
+    std::cout << "You leveled up! You are now level " << level << "!\n";
+    srand(time(NULL));
+    int mhpboost = (rand() % 4 + 2);
+    maxhp += mhpboost;
+    
+    std::cout << "Your maximum HP increased by " << mhpboost << "!\n";
+    hp = maxhp;
+    int strboost = (rand() % 4 + 2);
+    str += strboost;
+    
+    std::cout << "Your strength increased by " << strboost << "!\n";
+    int defboost = (rand() % 4 + 2);
+    def += defboost;
+    
+    std::cout << "Your defense increased by " << defboost << "!\n";
+    int staboost = (rand() % 4 + 2);
+    sta += staboost;
+    
+    std::cout << "Your stamina increased by " << staboost << "!\n\n";
+    exp = exp - maxexp;
+    maxexp += 10;
+}
+
+void Entity::gainExp(int e){
+    exp += e;
+    if (exp >= maxexp) levelUp();
 }

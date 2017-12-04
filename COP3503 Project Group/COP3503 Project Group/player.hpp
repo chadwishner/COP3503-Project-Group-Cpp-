@@ -21,12 +21,12 @@ class Player: public Entity{
                     int maxexp;
                     std::string name;
                     std::string inventory[5];
-                    void levelUp();
+                    //void levelUp();
                     int die() override;
                     std::string getType() override;
 	public:         Player(std::string n);
                     void heal(int h);
-                    void gainExp(int e);
+                    //void gainExp(int e);
                     std::string * getInv();
                     //void displayStatus();
 };

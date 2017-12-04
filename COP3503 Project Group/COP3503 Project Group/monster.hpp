@@ -18,9 +18,10 @@ class Monster : public Entity{
 				int sta;
 				int exp;
                 int maxexp;
+                int level;
                 std::string name;
 
-    public:		Monster(int h, int mh, int s, int d, int a, int e, int me, std::string n);
+    public:		Monster(int h, int mh, int s, int d, int a, int e, int me, int lvl, std::string n);
 				std::string getType() override;
 				int die() override;
 };

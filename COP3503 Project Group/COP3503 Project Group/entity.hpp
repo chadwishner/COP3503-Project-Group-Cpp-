@@ -20,12 +20,14 @@ class Entity
                     int sta;
                     int exp;
                     int maxexp;
+                    int level;
                     std::string name;
                     std::string inventory[5];
+                    virtual void levelUp();
                     virtual int die() = 0;
                     virtual std::string getType() {return "Entity";};
 
-	public:         Entity(int h, int mh, int s, int d, int a, int e, int me,           std::string n);
+	public:         Entity(int h, int mh, int s, int d, int a, int e, int me, int lvl, std::string n);
                     virtual int getHP();
                     virtual int getStr();
                     virtual int getDef();
@@ -34,5 +36,6 @@ class Entity
                     virtual int takeDamage(int d);
                     virtual int attack(Entity * e);
                     virtual void displayStatus();
+                    virtual void gainExp(int e);
 };
 #endif /* entity_hpp */
