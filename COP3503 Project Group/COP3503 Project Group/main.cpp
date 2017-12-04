@@ -35,7 +35,7 @@ int main(int argc, const char * argv[]) {
 	"Try and sneak out." // Leave the area (cannot leave without completing challenge)
     };
    
-    Monster m1 = Monster(5, 5, 11, 8, 10, 30, "DR. KAVALAN");
+    Monster m1 = Monster(5, 5, 11, 8, 10, 30, 0, "DR. KAVALAN");
     Room * r = new Room(&c1, &m1, message, flavorText, choices);
     roomList -> push(r);
     
@@ -50,7 +50,7 @@ int main(int argc, const char * argv[]) {
         "Look for a reference book.",
         "Leave the bookstore."
     };
-    Monster m2 = Monster(9, 9, 15, 12, 13, 34, "Bookstore Employee");
+    Monster m2 = Monster(9, 9, 15, 12, 13, 34, 0, "Bookstore Employee");
     r = new Room(&c2, &m2, message, flavorText, choices);
     roomList -> push(r);
     
@@ -65,7 +65,7 @@ int main(int argc, const char * argv[]) {
         "Hide in the bathroom in attempt to escape a a workout. ",
         "Leave the stadium in exhaustion"
     };
-    Monster m3 = Monster(13, 13, 19, 16, 17, 38, "Seminole");
+    Monster m3 = Monster(13, 13, 19, 16, 17, 38, 0, "Seminole");
     r = new Room(&c3, &m3, message, flavorText, choices);
     roomList -> push(r);
     
@@ -83,7 +83,7 @@ int main(int argc, const char * argv[]) {
         "Dodge the cow, dash for the key.",
         "Make your way over to the exit, unlock the door, and continue your journey."
     };
-    Monster m4 = Monster(17, 17, 23, 20, 21, 42, "Chick-Fil-A Cow");
+    Monster m4 = Monster(17, 17, 23, 20, 21, 42, 0, "Chick-Fil-A Cow");
     r = new Room(&c4, &m4, message, flavorText, choices);
     roomList -> push(r);
     
@@ -99,7 +99,7 @@ int main(int argc, const char * argv[]) {
         "Answer the final question", // Insert "challenge" choice here.
         "Take the L and leave" // Insert "leave" choice here.
     };
-    Monster m5 = Monster(21, 21, 27, 24, 25, 46, "The Proctor"); // Insert, in this order, the HP, max HP, STR, DEF, STA, EXP yield upon death, name.
+    Monster m5 = Monster(21, 21, 27, 24, 25, 46, 0, "The Proctor"); // Insert, in this order, the HP, max HP, STR, DEF, STA, EXP yield upon death, name.
     r = new Room(&c5, &m5, message, flavorText, choices);
     roomList -> push(r);
     
@@ -114,7 +114,7 @@ int main(int argc, const char * argv[]) {
         "Talk to Pat.",
         "Go to Chipotle."
     };
-    Monster m6 = Monster(25, 25, 31, 28, 29, 50, "Cockroach");
+    Monster m6 = Monster(25, 25, 31, 28, 29, 50, 0, "Cockroach");
     r = new Room(&c6, &m6, message, flavorText, choices);
     roomList -> push(r);
 
@@ -132,7 +132,7 @@ int main(int argc, const char * argv[]) {
         "Dodge Dennis, dash for the glowing potato.",
         "Open the door to the Computer Science and Engineering Building."
     };
-    Monster m7 = Monster(29, 29, 35, 32, 33, 54, "Dennis, The Peace Guy");
+    Monster m7 = Monster(29, 29, 35, 32, 33, 54, 0, "Dennis, The Peace Guy");
     r = new Room(&c7, &m7, message, flavorText, choices);
     roomList -> push(r);
     
@@ -151,7 +151,7 @@ int main(int argc, const char * argv[]) {
 	"Onward!",
     };
 
-    Monster m8 = Monster(33, 33, 39, 36, 37, 58, "SEGFAULT");
+    Monster m8 = Monster(33, 33, 39, 36, 37, 58, 0, "SEGFAULT");
 
     r = new Room(&c8, &m8, message, flavorText, choices);
     roomList -> push(r);

@@ -8,7 +8,7 @@
 #include <ctime>
 #include "player.hpp"
 
-Player::Player(std::string n) : Entity(20, 20, 20, 10, 10, 0, n), hp(20), maxhp(20), str(10), def(10), sta(10), exp(0), level(1), maxexp(30), name(n){
+Player::Player(std::string n) : Entity(20, 20, 20, 10, 10, 0, 30, n), hp(20), maxhp(20), str(10), def(10), sta(10), exp(0), level(1), maxexp(30), name(n){
     for (int i = 0; i < 5; i++) {
         inventory[i] = "None";
     }
@@ -64,15 +64,4 @@ void Player::gainExp(int e){
 
 std::string * Player::getInv(){
 	return inventory;
-}
-
-void Player::displayStatus(){
-	std::cout << "HP: " << hp << "/" << maxhp;
-	std::cout << "\tEXP: " << exp << "/" << maxexp << "\n";
-	std::cout << "STR: " << str << "\tDEF: "<< def << "\tSTA: " << sta << "\n";
-	std::cout << "\nInventory:\n";
-	for (std::string i : inventory){
-		std::cout << i << "\t";
-	}
-	std::cout << "\n\n";
 }

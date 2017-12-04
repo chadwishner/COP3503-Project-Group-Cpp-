@@ -10,8 +10,6 @@
 #include <iostream>
 #include "entity.hpp"
 
-// Framework for Monster class, needs to be finalized
-
 class Monster : public Entity{
 	private:	int hp;
 				int maxhp;
@@ -19,12 +17,12 @@ class Monster : public Entity{
 				int def;
 				int sta;
 				int exp;
+                int maxexp;
                 std::string name;
 
-    public:		Monster(int h, int mh, int s, int d, int a, int e, std::string n);
+    public:		Monster(int h, int mh, int s, int d, int a, int e, int me, std::string n);
 				std::string getType() override;
 				int die() override;
-                //~Monster();
 };
 
 #endif /* monster_hpp */

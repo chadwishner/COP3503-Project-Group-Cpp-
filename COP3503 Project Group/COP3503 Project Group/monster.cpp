@@ -5,7 +5,8 @@
 
 #include "monster.hpp"
 
-Monster::Monster(int h, int mh, int s, int d, int a, int e, std::string n) : Entity(h, mh, s, d, a, e, n), hp(h), maxhp(mh), str(s), def(d), sta(a), exp(e), name(n){}
+Monster::Monster(int h, int mh, int s, int d, int a, int e, int me, std::string n) : Entity(h, mh, s, d, a, e, me, n), hp(h), maxhp(mh), str(s), def(d), sta(a), exp(e), maxexp(0), name(n){
+}
 
 int Monster::die(){
     std::cout << "Congratulations! You have slain " << name << "!\n";

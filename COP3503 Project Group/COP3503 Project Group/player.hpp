@@ -28,8 +28,7 @@ class Player: public Entity{
                     void heal(int h);
                     void gainExp(int e);
                     std::string * getInv();
-                    void displayStatus();
-                    //~Player();
+                    //void displayStatus();
 };
 
 #endif /* player_hpp */

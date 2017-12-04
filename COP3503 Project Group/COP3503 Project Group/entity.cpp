@@ -7,7 +7,11 @@
 #include <cstdlib>
 #include <ctime>
 
-Entity::Entity(int h, int mh, int s, int d, int a, int e, std::string n) : hp(h), maxhp(mh), str(s), def(d), sta(a), exp(e), name(n){}
+Entity::Entity(int h, int mh, int s, int d, int a, int e, int me, std::string n) : hp(h), maxhp(mh), str(s), def(d), sta(a), exp(e), maxexp(me), name(n){
+    for (int i = 0; i < 5; i++) {
+        inventory[i] = "None";
+    }
+}
 
 int Entity::getHP(){
 	return hp;
@@ -63,4 +67,15 @@ int Entity::attack(Entity * e){
 		return spoils; // Here's the continuation of that daisy-chain.
 	}
 	return 0;
+}
+
+void Entity::displayStatus(){
+    std::cout << "HP: " << hp << "/" << maxhp;
+    std::cout << "\tEXP: " << exp << "/" << maxexp << "\n";
+    std::cout << "STR: " << str << "\tDEF: "<< def << "\tSTA: " << sta << "\n";
+    std::cout << "\nInventory:\n";
+    for (std::string i : inventory){
+        std::cout << i << "\t";
+    }
+    std::cout << "\n\n";
 }
